@@ -134,6 +134,13 @@ class Ui_LecMainWindow(object):
         self.gridLayout_2 = QtWidgets.QGridLayout()
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.textBrowser_3 = QtWidgets.QTextBrowser(self.tab_3)
+        font = QtGui.QFont()
+        font.setFamily("Segoe Script")
+        font.setPointSize(10)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.textBrowser_3.setFont(font)
         self.textBrowser_3.setStyleSheet("background-color: rgb(153, 135, 255);\n"
 "font: 75 10pt \"Segoe Script\";")
         self.textBrowser_3.setObjectName("textBrowser_3")
@@ -332,10 +339,41 @@ class Ui_LecMainWindow(object):
         self.label_21.setObjectName("label_21")
         self.gridLayout_6.addWidget(self.label_21, 0, 0, 1, 1)
         self.tabWidget.addTab(self.tab_4, "")
+        self.tab_2 = QtWidgets.QWidget()
+        self.tab_2.setObjectName("tab_2")
+        self.textBrowser_8 = QtWidgets.QTextBrowser(self.tab_2)
+        self.textBrowser_8.setGeometry(QtCore.QRect(20, 20, 811, 821))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.textBrowser_8.setFont(font)
+        self.textBrowser_8.setStyleSheet("background-color: rgb(153, 135, 255);")
+        self.textBrowser_8.setObjectName("textBrowser_8")
+        self.label_18 = QtWidgets.QLabel(self.tab_2)
+        self.label_18.setGeometry(QtCore.QRect(890, 20, 461, 201))
+        self.label_18.setText("")
+        self.label_18.setPixmap(QtGui.QPixmap("shem_step_vospr_obj.png"))
+        self.label_18.setScaledContents(True)
+        self.label_18.setObjectName("label_18")
+        self.label_24 = QtWidgets.QLabel(self.tab_2)
+        self.label_24.setGeometry(QtCore.QRect(890, 240, 591, 71))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_24.setFont(font)
+        self.label_24.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_24.setObjectName("label_24")
+        self.tabWidget.addTab(self.tab_2, "")
         self.tab_6 = QtWidgets.QWidget()
         self.tab_6.setObjectName("tab_6")
         self.textBrowser_7 = QtWidgets.QTextBrowser(self.tab_6)
-        self.textBrowser_7.setGeometry(QtCore.QRect(30, 50, 921, 681))
+        self.textBrowser_7.setGeometry(QtCore.QRect(20, 20, 981, 811))
+        self.textBrowser_7.setStyleSheet("background-color: rgb(153, 135, 255);\n"
+"font: 75 10pt \"Segoe Script\";")
         self.textBrowser_7.setObjectName("textBrowser_7")
         self.tabWidget.addTab(self.tab_6, "")
         self.gridLayout_4.addWidget(self.tabWidget, 0, 0, 1, 1)
@@ -349,7 +387,7 @@ class Ui_LecMainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -486,4 +524,25 @@ class Ui_LecMainWindow(object):
         self.label_23.setText(_translate("MainWindow", "Оптическая схема канала контроля рабочего состояния"))
         self.label_21.setText(_translate("MainWindow", "Композиция принципиальных оптических схем"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Оптическая схема осветительного, наблюдательного каналов, канала фиксации и канала контроля"))
+        self.textBrowser_8.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'Segoe Script\',\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-weight:400;\">Считается, что в сетчатке глаза человека есть три вида колбочек, максимумы чувствительности которых приходятся на красный, зелёный и синий участки спектра, т. е. соответствуют трём «основным» цветам. Они обеспечивают распознавание тысяч цветов и оттенков. Очень сильный свет возбуждает все 3 типа рецепторов и потому воспринимается как излучение слепяще-белого цвета. Равномерное раздражение всех трёх элементов, соответствующее средневзвешенному дневному свету, также вызывает ощущение белого цвета. В зависимости от расположения палочек и колбочек в сетчатке (колбочки расположены в центре, а палочки – по бокам, а между ними – палочки и колбочки в хаотическом порядке) размер поля зрения меняется для разного воспринимаемого цвета. Самое большое поле зрения у белого цвета, затем у синего, красного и зеленого (рис. 9.6). Из-за носа и щек поле зрения имеет слегка неправильную, асимметричную форму. Для белого цвета горизонтальная протяженность поля зрения составляет примерно 180º.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-weight:400;\">Свет с разной длиной волны по-разному стимулирует разные типы колбочек. Например, желто-зеленый свет в равной степени стимулирует колбочки L и M-типов, но слабее стимулирует колбочки S-типа. Красный свет стимулирует колбочки L-типа намного сильнее, чем колбочки M-типа, а S-типа не стимулирует почти совсем. Зелено-голубой свет стимулирует рецепторы M-типа сильнее, чем L-типа, а рецепторы S-типа – ещё немного сильнее; свет с этой длиной волны наиболее сильно стимулирует также палочки. Фиолетовый свет стимулирует почти исключительно колбочки S-типа. Мозг воспринимает комбинированную информацию от разных рецепторов, что обеспечивает различное восприятие света с разной длиной волны.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Периметрия - это методика для оценки границ поля зрения. Поле зрения - это совокупность всех точек в пространстве, которое видит человек одним глазом при фиксированном по центру взоре. </p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Бинокулярное зрение - это зрение при помощи двух глаз. Бинокулярное зрение имеет большие преимущества: оно значительно увеличивает поле зрения, участвует в восприятии глубины пространства, размеров и формы объектов, оценке расстояния до объектов. </p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-weight:400;\">Полем зрения называется пространство, в пределах которого видны все его точки при фиксированном положении глаза. Поле зрения в значительной степени определяет пропускную способность зрительного анализатора, т. е. то максимальное количество информации, которое способны зарегистрировать органы зрения за единицу времени. Между размерами поля зрения и пропускной способностью зрительного анализатора существует прямая зависимость – чем больше поле зрения, тем больше его пропускная способность. Размеры поля зрения значительно варьируются у различных людей. Эти индивидуальные различия зависят, например, от профессиональной деятельности, в частности, от занятия различными видами спорта. У футболистов, хоккеистов, волейболистов и других представителей игровых видов спорта границы поля зрения существенно шире, чем у людей, не занимающихся спортом. Также поле зрения увеличивается с возрастом. Поле зрения особенно интенсивно развивается в дошкольном и младшем школьном возрасте. Так, например, за период от 6 до 7,5 лет поле зрения возрастает в 10 раз. В возрасте 7 лет оно составляет 80 % от размеров поля зрения взрослого. В развитии поля зрения наблюдаются и половые особенности. В 6 лет поле зрения у мальчиков больше, чем у девочек, в 7–8 лет наблюдается обратное соотношение. В последующие годы размеры поля зрения сравниваются, а с 13–14 лет его размеры у девочек больше. Расширение поля зрения продолжается до 20–30 летнего возраста. В старости границы поля зрения несколько сужаются. Это сужение идет неравномерно по всем направлениям, не имеет прямой корреляции с возрастом и зависит от ряда факторов, в том числе от профессии. Различают цветовое (хроматическое) и бесцветное (ахроматическое) поле зрения. Ахроматическое поле зрения больше хроматического, т. е. наиболее велико поле зрения для белого цвета (т. е. для смешанного цвета). Это объясняется тем, что палочки, чувствительные ко всем видимым лучам и воспринимающие не цвет, а свет, находятся в большом количестве на периферии сетчатки. Границы ахроматического поля зрения составляют: кнаружи примерно 100º, кнутри и кверху – 60º и книзу – 65º. Для различных цветов поле зрения также неодинаково. Немного меньше, чем для белого, поле зрения для желтого цвета, ещё меньше для синего цвета, далее идет красный цвет, самое узкое поле зрения для зеленого цвета.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-weight:400;\">Измерение поля зрения - это измерение пространства, которое человек видит неподвижным глазом. Изменения поля зрения могут носить различный характер: в одних случаях оно концентрически сужено, иногда выпадают отдельные участки поля зрения как в центре (центральные скотомы), так и на периферии (периферические скотомы). При заболеваниях головного мозга нередко наблюдается двустороннее выпадение поля зрения - гемианопсия.</span></p></body></html>"))
+        self.label_24.setText(_translate("MainWindow", "Схема степени восприятия объектов:\n"
+"зона 1 – высокая степень идентификации цветов;\n"
+"зона 2 – средняя степень идентификации цветов (видны практически все цвета);\n"
+"зона 3 – Низкая степень идентификации цветов (видимы некоторые цвета)."))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Методические материалы для работы"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "Методические указания к работе"))
+
