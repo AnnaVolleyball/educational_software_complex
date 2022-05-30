@@ -487,4 +487,3 @@ class Ui_LecMainWindow(object):
         self.label_21.setText(_translate("MainWindow", "Композиция принципиальных оптических схем"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Оптическая схема осветительного, наблюдательного каналов, канала фиксации и канала контроля"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "Методические указания к работе"))
-import test_rc
