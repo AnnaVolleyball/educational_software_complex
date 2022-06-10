@@ -1,27 +1,77 @@
 # -*- coding: UTF-8 -*-
 import sys
+import sqlite3
+import random
+import matplotlib.pyplot as plt
+import numpy as np
+import datetime
 
-from PyQt5.QtCore import QRectF
+from PyQt5.QtCore import QRectF, QTimer
 from PyQt5.QtWidgets import QApplication, QWidget, QMainWindow, QVBoxLayout, QButtonGroup
 from PyQt5 import QtGui, QtWidgets
 
 from MainWindow import Ui_MainWindow
 from Laboratornaya import Ui_LabMainWindow
 from Lectsia import Ui_LecMainWindow
+from TestStud import Ui_TestMainWindow
+from Info import Ui_InfoMainWindow
+from Out_Time import Ui_TimeMainWindow
+from Registration import Ui_RegMainWindow
+from Results import Ui_ResMainWindow
+
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
-import numpy as np
 
 
 class WorkWindow(QMainWindow, Ui_MainWindow):
-    def __init__(self):
+    def __init__(self, FIO, group, id, connection):
         super().__init__()
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.setWindowTitle("Технические средства для офтальмологии")
         self.pushButton.clicked.connect(self.show_lec)
         self.pushButton_2.clicked.connect(self.show_lab)
+        self.pushButton_3.clicked.connect(self.show_test)
+        self.pushButton_7.clicked.connect(self.show_info)
+
+        self.FIO = FIO
+        self.group = group
+        self.id = id
+        try:
+            self.connection = connection
+            self.cursor = self.connection.cursor()
+            self.kolvo_popytk = self.cursor.execute(
+                f"SELECT Popytky FROM Students WHERE FIO='{self.FIO}' AND gruppa='{self.group}'").fetchone()
+            self.best_result = self.cursor.execute(
+                f"SELECT best_result FROM Students WHERE FIO='{self.FIO}' AND gruppa='{self.group}'").fetchone()
+            # self.id_stud = self.cursor.execute(  УЖЕ ПЕРЕДАЛИ В ФУНКЦИЮ
+            #     f"SELECT id FROM Students WHERE FIO='{self.FIO}' AND gruppa='{self.group}'").fetchone()
+            self.pushButton_10.setText(self.FIO)
+            self.pushButton_11.setText(self.group)
+            self.pushButton_14.setText(f"{self.kolvo_popytk[0]}")
+            self.pushButton_15.setText(f"{self.best_result[0]}/10")
+
+        except Exception as e:
+            print(e)
+
+    def print_pie(self):
+        self.figure = plt.figure(figsize=(341, 341))
+        self.canvas = FigureCanvas(self.figure)
+
+        self.layout = QVBoxLayout(self.widget)
+        self.layout.addWidget(self.canvas)
+
+        ax = self.figure.add_subplot(111)
+        plt.rcParams['axes.facecolor'] = 'white'
+
+        labels = 'Correct', 'Incorrect', 'NotAttemted'
+        sizes = [1, 5, 4]
+        colors = ['yellowgreen', 'lightcoral', 'lightskyblue']
+        pie = ax.pie(sizes, colors=colors, shadow=True, autopct='%1.1f%%', startangle=90)
+        ax.legend(pie[0], labels, loc="lower right")
+        self.figure.patch.set_facecolor('blue')
+        self.figure.patch.set_alpha(0.0)
 
     def show_lab(self):
         self.LabWin = LabWindow()
@@ -33,6 +83,81 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         self.LecWin.show()
         # self.close()
 
+    def show_test(self):
+        self.TestWin = TestWindow(self.FIO, self.id, self.group)
+        self.TestWin.show()
+        # self.close()
+
+    def show_info(self):
+        self.InfoWin = InfoWindow()
+        self.InfoWin.show()
+        # self.close()
+
+
+class InfoWindow(QMainWindow, Ui_InfoMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.setWindowTitle("О программе")
+
+
+class ResWindow(QMainWindow, Ui_ResMainWindow):
+    def __init__(self, FIO, id, group, pop, quest_number, true_answer, false_answer, none_answer):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.setWindowTitle("Результаты теста")
+        self.pushButton.clicked.connect(self.ret_on_MainWind)
+
+        self.FIO = FIO
+        self.id = id
+        self.group = group
+        self.pop = pop
+        self.quest_number = quest_number
+        self.true_answer = true_answer
+        self.false_answer = false_answer
+        self.none_answer = none_answer
+
+        self.label_5.setText(f"{self.FIO}")
+        self.label_6.setText(f"{self.group}")
+        self.label_7.setText(f"{self.pop}")
+        self.label_8.setText(f"{self.quest_number}/10")
+        self.label_10.setText(f"{self.true_answer}")
+        self.label_12.setText(f"{self.true_answer - self.false_answer}")
+
+        self.figure = plt.figure(figsize=(341, 341))
+        self.canvas = FigureCanvas(self.figure)
+
+        self.layout = QVBoxLayout(self.widget)
+        self.layout.addWidget(self.canvas)
+
+        ax = self.figure.add_subplot(111)
+        plt.rcParams['axes.facecolor'] = 'white'
+
+        labels = 'Правильно', 'Неправильно', 'Пропущено'
+        sizes = [self.true_answer, self.false_answer, self.none_answer]
+        colors = ['yellowgreen', 'lightcoral', 'lightskyblue']
+        pie = ax.pie(sizes, colors=colors, shadow=True, autopct='%1.1f%%', startangle=90)
+        ax.legend(pie[0], labels, loc="lower right")
+        self.figure.patch.set_facecolor('blue')
+        self.figure.patch.set_alpha(0.0)
+
+    def ret_on_MainWind(self):
+        self.close()
+
+
+class TimeWindow(QMainWindow, Ui_TimeMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.setWindowTitle("Завершение теста")
+        self.pushButton.clicked.connect(self.close_and_saveBD)
+
+    def close_and_saveBD(self):
+        self.close()
+
 
 class LecWindow(QMainWindow, Ui_LecMainWindow):
     def __init__(self):
@@ -40,6 +165,149 @@ class LecWindow(QMainWindow, Ui_LecMainWindow):
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.setWindowTitle("Методический материал")
+
+
+class TestWindow(QMainWindow, Ui_TestMainWindow):
+    def __init__(self, FIO, id, group):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.setWindowTitle("Тестирование по лекции")
+        self.connection = sqlite3.connect("BD_TSDO.db")
+        self.cursor = self.connection.cursor()
+        self.quest_number = 0
+        self.slovar = {}
+        self.FIO = FIO
+        self.id = id
+        self.group = group
+        self.true_answer = 0
+        self.false_answer = 0
+        self.none_answer = 0
+        self.pop = self.cursor.execute(f"SELECT Popytky FROM Students WHERE id={self.id}").fetchone()
+        self.pop = self.pop[0]
+
+        self.pushButton_2.clicked.connect(self.check_and_next)
+        self.pushButton.clicked.connect(self.close_lec_and_time)
+
+        self.button_group_ans = QButtonGroup()
+        self.button_group_ans.addButton(self.radioButton)
+        self.button_group_ans.addButton(self.radioButton_2)
+        self.button_group_ans.addButton(self.radioButton_3)
+        self.button_group_ans.addButton(self.radioButton_4)
+
+
+        self.questions = [i for i in range(1, 11)]
+        random.shuffle(self.questions)
+        self.questions = self.questions[:10]
+
+        self.timer = QTimer(self)
+        self.startTimer()
+        self.timer.timeout.connect(self.timerTick)
+
+        self.update_window()
+
+    def startTimer(self):
+        # 420
+        self.inicio = 30
+        self.updateTimerDisplay()
+        self.timer.start(1000)
+
+    def updateTimerDisplay(self):
+        text = "%d:%02d" % (self.inicio / 60, self.inicio % 60)
+        self.lcdNumber.display(text)
+
+    def close_lec_and_time(self, ev):
+        # self.TimeWin.close()
+        #ЗДЕСЬ ЗАПИСЫВАЕМ РЕЗУЛЬТАТЫ ТЕСТА В БД
+        print(self.pop)
+        self.pop += 1
+        print(self.pop)
+        print(self.id)
+        self.point = self.true_answer - self.false_answer
+        try:
+            self.cursor.execute(f"""INSERT INTO Results_Students (a_true, a_false, a_none, popytka, id_student, point)
+                                 VALUES ({self.true_answer}, {self.false_answer}, {self.none_answer}, {self.pop}, {self.id}, {self.point})""")
+            #self.connection.commit()
+            self.cursor.execute(f"""UPDATE Students SET Popytky = {self.pop}
+                                    WHERE id={self.id}""")
+            self.connection.commit()
+        except Exception as e:
+            print(e)
+        self.end_test()
+        self.close()
+
+    def show_out_time(self):
+        self.TimeWin = TimeWindow()
+        self.TimeWin.show()
+        self.setEnabled(False)
+        self.TimeWin.closeEvent = self.close_lec_and_time
+
+    def timerTick(self):
+        self.inicio -= 1
+        self.updateTimerDisplay()
+        if self.inicio <= 0:
+            self.timer.stop()
+            self.show_out_time()
+
+    def update_window(self):
+        self.label.setText(f"{self.quest_number}/10")
+        self.pushButton_2.setText("Проверить ответ")
+        text = self.cursor.execute(f"SELECT Question FROM Questions WHERE id={self.questions[self.quest_number - 1]}").fetchone()
+        set_text = f"Вопрос №{self.quest_number}. {text[0]}"
+        self.textBrowser.setText(set_text)
+        answers = self.cursor.execute(f"SELECT id, Answer FROM Answers WHERE Numer={self.questions[self.quest_number - 1]}").fetchall()
+        random.shuffle(answers)
+        self.radioButton.setText(answers[0][1])
+        self.radioButton_2.setText(answers[1][1])
+        self.radioButton_3.setText(answers[2][1])
+        self.radioButton_4.setText(answers[3][1])
+        self.radioButton.setChecked(False)
+        self.radioButton_2.setChecked(False)
+        self.radioButton_3.setChecked(False)
+        self.radioButton_4.setChecked(False)
+        self.slovar[self.radioButton.text()] = answers[0][0]
+        self.slovar[self.radioButton_2.text()] = answers[1][0]
+        self.slovar[self.radioButton_3.text()] = answers[2][0]
+        self.slovar[self.radioButton_4.text()] = answers[3][0]
+
+    def check_and_next(self):
+        if self.quest_number < 10:
+            text = self.pushButton_2.text()
+            if text == "Проверить ответ":
+                true_answ_id = self.cursor.execute(f"SELECT True_Answer FROM Questions WHERE id={self.questions[self.quest_number - 1]}").fetchone()
+                if not self.button_group_ans.checkedButton():
+                    self.statusbar.showMessage("Вопрос пропущен")
+                    self.statusBar().setStyleSheet("background-color: pink")
+                    self.none_answer += 1
+                elif true_answ_id[0] == self.slovar[self.button_group_ans.checkedButton().text()]:
+                    self.statusbar.showMessage("Верно")
+                    self.statusBar().setStyleSheet("background-color: white")
+                    self.true_answer += 1
+                else:
+                    self.statusbar.showMessage("Неверно")
+                    self.statusBar().setStyleSheet("background-color: pink")
+                    self.false_answer += 1
+                self.pushButton_2.setText("Следующий вопрос")
+            elif text == "Следующий вопрос":
+                self.quest_number += 1
+                self.update_window()
+        else:
+            try:
+                self.close_lec_and_time(3)
+            except Exception as e:
+                print(e)
+
+    def end_test(self):
+        try:
+            self.setEnabled(False)
+            self.timer.stop()
+            # передаем все необходимые штуки из бд
+            print(self.pop)
+            self.ResWin = ResWindow(self.FIO, self.id, self.group, self.pop, self.quest_number, self.true_answer, self.false_answer, self.none_answer)
+            self.ResWin.show()
+            # self.close()
+        except Exception as e:
+            print(e)
 
 
 class LabWindow(QMainWindow, Ui_LabMainWindow, QButtonGroup):
@@ -169,7 +437,6 @@ class MyMplCanvas(FigureCanvas, Ui_LabMainWindow):
         x.append(a)
         y.append(b)
 
-
         # Выведем точку, куда кликнули
         self.ax.plot(a, b, f'{color[0]}o')
 
@@ -212,9 +479,66 @@ class MyMplCanvas(FigureCanvas, Ui_LabMainWindow):
         self.draw()
 
 
+class RegistrationWindow(QMainWindow, Ui_RegMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.connection = sqlite3.connect("BD_TSDO.db")
+        self.cur = self.connection.cursor()
+        self.pushButton.clicked.connect(self.push)
+
+    def push(self):
+        self.FIO = self.lineEdit.text()
+        self.group = self.lineEdit_2.text()
+
+        if not self.FIO or not self.group:
+            self.statusbar.showMessage("Заполните оба поля!")
+        else:
+            try:
+                self.cur.execute(f"""INSERT INTO Students (FIO, gruppa)
+                                 VALUES ('{self.FIO}', '{self.group}')""")
+            except Exception as e:
+                print(e)
+            self.connection.commit()
+            self.id = self.cur.execute(f"""SELECT id FROM Students
+                                           WHERE FIO='{self.FIO}'
+                                           AND gruppa='{self.group}'""").fetchone()
+            self.id = self.id[0]
+            self.secondWin = WorkWindow(self.FIO, self.group, self.id, self.connection)
+            self.secondWin.show()
+            self.close()
+
+    #     result = self.cur.execute(f"""SELECT login FROM Users
+    #                                   WHERE login = '{login}'
+    #                                   AND password = '{password}'""").fetchone()
+    #     if not result:
+    #         self.label.setText("Неправильный логин или пароль!")
+    #         return
+    #     else:
+    #         self.userId = self.cur.execute(f"""SELECT id FROM Users
+    #                                            WHERE login = '{login}'
+    #                                            AND password = '{password}'""").fetchone()[0]
+    #
+    # def push_reg(self):
+    #     login = self.lineEdit.text()
+    #     password = self.lineEdit_2.text()
+    #     try:
+    #         result = self.cur.execute(f"""SELECT login
+    #                                       FROM Users""").fetchall()
+    #         if result:
+    #             self.label.setText("Зарегистрироваться можно только один раз!")
+    #             return
+    #         self.cur.execute(f"""INSERT INTO Users(login, password)
+    #                              VALUES('{login}', '{password}')""")
+    #         self.connection.commit()
+    #         self.label.setText("Отлично! Теперь вы можете войти!")
+    #     except Exception as e:
+    #         print(e)
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ex = WorkWindow()
+    ex = RegistrationWindow()
     ex.show()
     sys.exit(app.exec())
 
