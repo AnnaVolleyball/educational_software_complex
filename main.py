@@ -30,6 +30,8 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.setWindowTitle("Технические средства для офтальмологии")
+        self.connection = connection
+        self.cursor = self.connection.cursor()
         self.pushButton.clicked.connect(self.show_lec)
         self.pushButton_2.clicked.connect(self.show_lab)
         self.pushButton_3.clicked.connect(self.show_test)
@@ -38,19 +40,23 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         self.FIO = FIO
         self.group = group
         self.id = id
+
+        self.pushButton_10.setText(self.FIO)
+        self.pushButton_11.setText(self.group)
+
+        self.update_statistics()
+
+    def update_statistics(self):
         try:
-            self.connection = connection
-            self.cursor = self.connection.cursor()
+            self.best = self.cursor.execute(
+                f"select popytka, a_true, a_false, a_none, result from Results_Students where id_student = {self.id} ORDER BY a_true DESC, result DESC").fetchone()
+            print(self.best)
             self.kolvo_popytk = self.cursor.execute(
                 f"SELECT Popytky FROM Students WHERE FIO='{self.FIO}' AND gruppa='{self.group}'").fetchone()
-            self.best_result = self.cursor.execute(
-                f"SELECT best_result FROM Students WHERE FIO='{self.FIO}' AND gruppa='{self.group}'").fetchone()
             # self.id_stud = self.cursor.execute(  УЖЕ ПЕРЕДАЛИ В ФУНКЦИЮ
             #     f"SELECT id FROM Students WHERE FIO='{self.FIO}' AND gruppa='{self.group}'").fetchone()
-            self.pushButton_10.setText(self.FIO)
-            self.pushButton_11.setText(self.group)
             self.pushButton_14.setText(f"{self.kolvo_popytk[0]}")
-            self.pushButton_15.setText(f"{self.best_result[0]}/10")
+            self.pushButton_15.setText(f"{self.best[4]}/10")
 
         except Exception as e:
             print(e)
@@ -65,7 +71,7 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         plt.rcParams['axes.facecolor'] = 'white'
 
         labels = 'Правильно', 'Неправильно', 'Пропущено'
-        sizes = [1, 5, 4]
+        sizes = [self.best[1], self.best[2], self.best[3]]
         colors = ['yellowgreen', 'lightcoral', 'lightskyblue']
         pie = ax.pie(sizes, colors=colors, shadow=True, autopct='%1.1f%%', startangle=90)
         ax.legend(pie[0], labels, loc="lower right")
@@ -83,7 +89,7 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         # self.close()
 
     def show_test(self):
-        self.TestWin = TestWindow(self.FIO, self.id, self.group, self.connection)
+        self.TestWin = TestWindow(self.FIO, self.id, self.group, self.connection, self)
         self.TestWin.show()
         # self.close()
 
@@ -143,6 +149,7 @@ class ResWindow(QMainWindow, Ui_ResMainWindow):
         self.figure.patch.set_alpha(0.0)
 
     def ret_on_MainWind(self):
+        # self.update_statistics()
         self.close()
 
 
@@ -167,8 +174,9 @@ class LecWindow(QMainWindow, Ui_LecMainWindow):
 
 
 class TestWindow(QMainWindow, Ui_TestMainWindow):
-    def __init__(self, FIO, id, group, connection):
+    def __init__(self, FIO, id, group, connection, workWin):
         super().__init__()
+        self.workWin = workWin
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.setWindowTitle("Тестирование по лекции")
@@ -202,6 +210,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.timer = QTimer(self)
         self.startTimer()
         self.timer.timeout.connect(self.timerTick)
+        self.closeEvent = self.close_lec_and_time
 
         self.update_window()
 
@@ -222,12 +231,11 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.pop += 1
         print(self.pop)
         print(self.id)
-        self.point = self.true_answer - self.false_answer
         try:
             if self.true_answer == 0 and self.false_answer == 0 and self.none_answer == 0:
                 self.none_answer = 10
-            self.cursor.execute(f"""INSERT INTO Results_Students (a_true, a_false, a_none, popytka, id_student, point, result)
-                                 VALUES ({self.true_answer}, {self.false_answer}, {self.none_answer}, {self.pop}, {self.id}, {self.point}, {self.quest_number})""")
+            self.cursor.execute(f"""INSERT INTO Results_Students (a_true, a_false, a_none, popytka, id_student, result)
+                                 VALUES ({self.true_answer}, {self.false_answer}, {self.none_answer}, {self.pop}, {self.id}, {self.quest_number})""")
             self.connection.commit()
             self.cursor.execute(f"""UPDATE Students SET Popytky = {self.pop}
                                     WHERE id={self.id}""")
@@ -262,10 +270,6 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.radioButton_2.setText(answers[1][1])
         self.radioButton_3.setText(answers[2][1])
         self.radioButton_4.setText(answers[3][1])
-        self.radioButton.setChecked(False)
-        self.radioButton_2.setChecked(False)
-        self.radioButton_3.setChecked(False)
-        self.radioButton_4.setChecked(False)
         self.slovar[self.radioButton.text()] = answers[0][0]
         self.slovar[self.radioButton_2.text()] = answers[1][0]
         self.slovar[self.radioButton_3.text()] = answers[2][0]
@@ -275,6 +279,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         if self.quest_number < 10:
             text = self.pushButton_2.text()
             if text == "Проверить ответ":
+                self.quest_number += 1
                 true_answ_id = self.cursor.execute(f"SELECT True_Answer FROM Questions WHERE id={self.questions[self.quest_number - 1]}").fetchone()
                 if not self.button_group_ans.checkedButton():
                     self.statusbar.showMessage("Вопрос пропущен")
@@ -290,7 +295,13 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
                     self.false_answer += 1
                 self.pushButton_2.setText("Следующий вопрос")
             elif text == "Следующий вопрос":
-                self.quest_number += 1
+                self.statusbar.clearMessage()
+                self.statusBar().setStyleSheet("background-color: transparent")
+                self.button_group_ans.setExclusive(False)
+                self.radioButton.setChecked(False)
+                self.radioButton_2.setChecked(False)
+                self.radioButton_3.setChecked(False)
+                self.radioButton_4.setChecked(False)
                 self.update_window()
         else:
             try:
@@ -305,6 +316,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
             # передаем все необходимые штуки из бд
             print(self.pop)
             self.ResWin = ResWindow(self.FIO, self.id, self.group, self.pop, self.quest_number, self.true_answer, self.false_answer, self.none_answer)
+            self.workWin.update_statistics()
             self.ResWin.show()
             # self.close()
         except Exception as e:
