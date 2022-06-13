@@ -207,7 +207,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.button_group_ans.addButton(self.radioButton_3)
         self.button_group_ans.addButton(self.radioButton_4)
 
-        self.questions = [i for i in range(1, 11)]
+        self.questions = [i for i in range(1, 31)]
         # Вместо 11 сколько всего в базе вопросов
         random.shuffle(self.questions)
         self.questions = self.questions[:10]
