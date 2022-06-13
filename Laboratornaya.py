@@ -116,6 +116,7 @@ class Ui_LabMainWindow(object):
         self.radioButton_8.setFont(font)
         self.radioButton_8.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: transparent;")
+        self.radioButton_8.setChecked(True)
         self.radioButton_8.setObjectName("radioButton_8")
         self.verticalLayout.addWidget(self.radioButton_8)
         self.radioButton_5 = QtWidgets.QRadioButton(self.centralwidget)
@@ -318,7 +319,7 @@ class Ui_LabMainWindow(object):
         self.radioButton_2.setText(_translate("MainWindow", "Синий"))
         self.radioButton_3.setText(_translate("MainWindow", "Красный"))
         self.radioButton_4.setText(_translate("MainWindow", "Зеленый"))
-        self.pushButton_2.setText(_translate("MainWindow", "Проявить области"))
+        self.pushButton_2.setText(_translate("MainWindow", "Проявить область"))
         self.radioButton_8.setText(_translate("MainWindow", "0°"))
         self.radioButton_5.setText(_translate("MainWindow", "30°"))
         self.radioButton_6.setText(_translate("MainWindow", "60°"))

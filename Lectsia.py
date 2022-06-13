@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_LecMainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1800, 960)
+        MainWindow.resize(1800, 961)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.centralwidget)
@@ -387,7 +387,7 @@ class Ui_LecMainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -425,7 +425,7 @@ class Ui_LecMainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Основные технические характеристики проекционного периметра должны соответствовать следующим минимальным медико-техническим требованиям. Изображение испытательного стимула круглой формы (стимул Гольдмана) диаметром 15, 5, 3 или 1 мм перемещается по дуге в пределах от 0 до ±95°. Цвета испытательных стимулов – белый, красный, синий, зеленый. Яркость испытательных стимулов может составлять: 3·10^-5, 12·10^-5, 48·10^-5, 3·10^-2, 12·^-2, 48·^10-2, 1, 4, 6 [кд/м 2 ]. Яркость дуги радиусом 333 мм зависит от задачи исследования: 2·10^-4 [кд/м^2] (ночное зрение); 2·10^-1 [кд/м^2] (сумеречное зрение); 5,0 [кд/м^2] (дневное зрение). Спектральный состав излучения ламп осветительного канала должен быть близок к дневному свету.</span></p></body></html>"))
         self.label_3.setText(_translate("MainWindow", "Полярная система координат (со стороны пациента)"))
         self.label_5.setText(_translate("MainWindow", "Назначение прибора и средние границы"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Назначение прибора и средние границы, стандарт ISO"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Лекция. Часть 1"))
         self.label_19.setText(_translate("MainWindow", "Оптическая схема периметра и методика работы"))
         self.textBrowser_3.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -500,7 +500,7 @@ class Ui_LecMainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Габаритные размеры прибора, [мм]         655×678×750 </span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Масса прибора, [кг]             не более 25</span></p></body></html>"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Оптическая схема, конструкция проекционного периметра и основные тех. характеристики прибора"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Лекция. Часть 2"))
         self.textBrowser_5.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -523,7 +523,7 @@ class Ui_LecMainWindow(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Оптическая схема канала контроля рабочего расстояния приведена на рисунке. Общая для всех каналов прибора лампа 6 создает освещение двух идентичных ветвей 16 - 19. В каждой ветви канала полевая диафрагма 17, имеющая форму кольца, освещается равномерно с помощью конденсора 16. Полевая диафрагма 17 проектируется на исследуемый глаз 4 объективом 18 и зеркалом 19. Конденсоры 16 и объективы 18 изображают нить лампы 6 на зеркалах 19 как апертурных диафрагмах. Таким образом, данная система компонуется по схеме диапроекции по Келлеру. Зеркала 19 направляют лучи таким образом, что при условии наложения изображения колец друг на друга и окаймлений ими зрачка исследуемого глаза 4 обеспечивается точная установка глаза в центре дуги (на расстоянии 333 мм от фиксационной точки 3).</span></p></body></html>"))
         self.label_23.setText(_translate("MainWindow", "Оптическая схема канала контроля рабочего состояния"))
         self.label_21.setText(_translate("MainWindow", "Композиция принципиальных оптических схем"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Оптическая схема осветительного, наблюдательного каналов, канала фиксации и канала контроля"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Лекция. Часть 3"))
         self.textBrowser_8.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -545,4 +545,3 @@ class Ui_LecMainWindow(object):
 "зона 3 – Низкая степень идентификации цветов (видимы некоторые цвета)."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Методические материалы для работы"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "Методические указания к работе"))
-

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1800</width>
-    <height>960</height>
+    <height>961</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,11 +27,11 @@
        <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));</string>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
-        <string>Назначение прибора и средние границы, стандарт ISO</string>
+        <string>Лекция. Часть 1</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="2" column="0">
@@ -240,7 +240,7 @@ background-color: transparent;</string>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>Оптическая схема, конструкция проекционного периметра и основные тех. характеристики прибора</string>
+        <string>Лекция. Часть 2</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="0" column="0">
@@ -612,7 +612,7 @@ p, li { white-space: pre-wrap; }
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>Оптическая схема осветительного, наблюдательного каналов, канала фиксации и канала контроля</string>
+        <string>Лекция. Часть 3</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_6">
         <item row="1" column="0">
@@ -917,8 +917,6 @@ font: 75 10pt &quot;Segoe Script&quot;;</string>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="test.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

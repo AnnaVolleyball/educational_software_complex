@@ -174,7 +174,7 @@ class Ui_TestMainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.label_2.setText(_translate("MainWindow", "Вопрос"))
+        self.label_2.setText(_translate("MainWindow", "Кол-во отвеченных вопросов:"))
         self.label.setText(_translate("MainWindow", "0/10"))
         self.label_3.setText(_translate("MainWindow", "Оставшееся время:"))
         self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"

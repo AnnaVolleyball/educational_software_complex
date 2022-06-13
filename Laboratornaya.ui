@@ -178,7 +178,7 @@ background-color: transparent;</string>
 background-color: white;</string>
         </property>
         <property name="text">
-         <string>Проявить области</string>
+         <string>Проявить область</string>
         </property>
        </widget>
       </item>

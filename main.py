@@ -510,6 +510,8 @@ class RegistrationWindow(QMainWindow, Ui_RegMainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.setWindowTitle("Окно регистрации")
         self.connection = sqlite3.connect("BD_TSDO.db")
         self.cur = self.connection.cursor()
         self.pushButton.clicked.connect(self.push)

@@ -47,7 +47,7 @@
 background-color: transparent;</string>
         </property>
         <property name="text">
-         <string>Вопрос</string>
+         <string>Кол-во отвеченных вопросов:</string>
         </property>
        </widget>
       </item>
