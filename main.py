@@ -323,6 +323,7 @@ class LabWindow(QMainWindow, Ui_LabMainWindow, QButtonGroup):
             self.button_group_color_left = QButtonGroup()
             self.button_group_color = QButtonGroup()
             self.button_group_gradus = QButtonGroup()
+            self.check = 0
 
             self.button_group_eye.addButton(self.radioButton_21)
             self.button_group_eye.addButton(self.radioButton_22)
@@ -346,17 +347,19 @@ class LabWindow(QMainWindow, Ui_LabMainWindow, QButtonGroup):
             self.button_group_gradus.addButton(self.radioButton_14)
             self.button_group_gradus.addButton(self.radioButton_15)
             self.button_group_gradus.addButton(self.radioButton_16)
+            self.radioButton_8.setChecked(True)
 
             self.button_group_color.addButton(self.radioButton)
             self.button_group_color.addButton(self.radioButton_2)
             self.button_group_color.addButton(self.radioButton_3)
             self.button_group_color.addButton(self.radioButton_4)
+            self.radioButton.setChecked(True)
 
             self.button_group_gradus.buttonToggled[QtWidgets.QAbstractButton, bool].connect(self.change_picture)
             self.button_group_color_left.buttonToggled[QtWidgets.QAbstractButton, bool].connect(self.change_picture)
             self.button_group_eye.buttonToggled[QtWidgets.QAbstractButton, bool].connect(self.change_picture)
 
-            self.canvas = MyMplCanvas(self)
+            self.canvas = MyMplCanvas(self, self.check)
             self.toolbar = NavigationToolbar(self.canvas, self)
 
             self.layout = QVBoxLayout(self.widget)
@@ -413,9 +416,10 @@ class LabWindow(QMainWindow, Ui_LabMainWindow, QButtonGroup):
 
 
 class MyMplCanvas(FigureCanvas, Ui_LabMainWindow):
-    def __init__(self, win):
+    def __init__(self, win, check):
         self.fig = Figure()
         self.win = win
+        self.check = check
         super(MyMplCanvas, self).__init__(self.fig)
 
     def onMouseClick(self, event):
@@ -451,33 +455,40 @@ class MyMplCanvas(FigureCanvas, Ui_LabMainWindow):
         self.draw()
 
     def print_graf(self):
-            try:
-                self.fig.clear()  # !!!
+        try:
+            self.check += 1
+            self.fig.clear()  # !!!
 
-                self.ax = self.fig.add_axes([0.1, 0.1, 0.8, 0.8], polar=True)
-                self.ax.set_thetagrids(np.arange(0.0, 360.0, 30.0))
-                self.ax.set_rgrids(np.arange(10, 100, 10))
+            self.ax = self.fig.add_axes([0.1, 0.1, 0.8, 0.8], polar=True)
+            self.ax.set_thetagrids(np.arange(0.0, 360.0, 30.0))
+            self.ax.set_rgrids(np.arange(10, 100, 10))
 
-                self.fig.canvas.mpl_connect('button_press_event', self.onMouseClick)
-                self.draw()  # !!!
-                self.pins = {"yellow": [[], []],
-                             "blue": [[], []],
-                             "red": [[], []],
-                             "green": [[], []]}
-            except Exception as e:
-                print(e)
+            self.fig.canvas.mpl_connect('button_press_event', self.onMouseClick)
+            self.draw()  # !!!
+            self.pins = {"yellow": [[], []],
+                         "blue": [[], []],
+                         "red": [[], []],
+                         "green": [[], []]}
+        except Exception as e:
+            print(e)
 
     def make_fill(self):
-        color = self.win.ret_color()
+        try:
+            if self.check == 0:
+                pass
+            else:
+                color = self.win.ret_color()
 
-        x, y = self.pins[color]
-        # Сделаем заливку графика
-        self.ax.fill(x, y, color=color, alpha=0.1)
+                x, y = self.pins[color]
+                # Сделаем заливку графика
+                self.ax.fill(x, y, color=color, alpha=0.1)
 
-        # Обновим рисунок
-        self.ax.set_thetagrids(np.arange(0.0, 360.0, 30.0))
-        self.ax.set_rgrids(np.arange(0, 100, 10))
-        self.draw()
+                # Обновим рисунок
+                self.ax.set_thetagrids(np.arange(0.0, 360.0, 30.0))
+                self.ax.set_rgrids(np.arange(0, 100, 10))
+                self.draw()
+        except Exception as e:
+            print(e)
 
 
 class RegistrationWindow(QMainWindow, Ui_RegMainWindow):
@@ -500,8 +511,9 @@ class RegistrationWindow(QMainWindow, Ui_RegMainWindow):
                 check_ids = self.cur.execute(f"""SELECT id FROM Students""").fetchall()
                 if check_id in check_ids:
                     print(2222222)
-                self.cur.execute(f"""INSERT INTO Students (FIO, gruppa)
-                                 VALUES ('{self.FIO}', '{self.group}')""")
+                else:
+                    self.cur.execute(f"""INSERT INTO Students (FIO, gruppa)
+                                     VALUES ('{self.FIO}', '{self.group}')""")
             except Exception as e:
                 print(e)
             self.connection.commit()

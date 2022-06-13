@@ -116,7 +116,6 @@ class Ui_LabMainWindow(object):
         self.radioButton_8.setFont(font)
         self.radioButton_8.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: transparent;")
-        self.radioButton_8.setChecked(True)
         self.radioButton_8.setObjectName("radioButton_8")
         self.verticalLayout.addWidget(self.radioButton_8)
         self.radioButton_5 = QtWidgets.QRadioButton(self.centralwidget)
