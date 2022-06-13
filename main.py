@@ -55,7 +55,6 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         except Exception as e:
             print(e)
 
-    def print_pie(self):
         self.figure = plt.figure(figsize=(341, 341))
         self.canvas = FigureCanvas(self.figure)
 
@@ -65,7 +64,7 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         ax = self.figure.add_subplot(111)
         plt.rcParams['axes.facecolor'] = 'white'
 
-        labels = 'Correct', 'Incorrect', 'NotAttemted'
+        labels = 'Правильно', 'Неправильно', 'Пропущено'
         sizes = [1, 5, 4]
         colors = ['yellowgreen', 'lightcoral', 'lightskyblue']
         pie = ax.pie(sizes, colors=colors, shadow=True, autopct='%1.1f%%', startangle=90)
@@ -84,7 +83,7 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         # self.close()
 
     def show_test(self):
-        self.TestWin = TestWindow(self.FIO, self.id, self.group)
+        self.TestWin = TestWindow(self.FIO, self.id, self.group, self.connection)
         self.TestWin.show()
         # self.close()
 
@@ -168,12 +167,13 @@ class LecWindow(QMainWindow, Ui_LecMainWindow):
 
 
 class TestWindow(QMainWindow, Ui_TestMainWindow):
-    def __init__(self, FIO, id, group):
+    def __init__(self, FIO, id, group, connection):
         super().__init__()
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.setWindowTitle("Тестирование по лекции")
-        self.connection = sqlite3.connect("BD_TSDO.db")
+        # self.connection = sqlite3.connect("BD_TSDO.db")
+        self.connection = connection
         self.cursor = self.connection.cursor()
         self.quest_number = 0
         self.slovar = {}
@@ -195,7 +195,6 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.button_group_ans.addButton(self.radioButton_3)
         self.button_group_ans.addButton(self.radioButton_4)
 
-
         self.questions = [i for i in range(1, 11)]
         random.shuffle(self.questions)
         self.questions = self.questions[:10]
@@ -208,7 +207,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
 
     def startTimer(self):
         # 420
-        self.inicio = 30
+        self.inicio = 10
         self.updateTimerDisplay()
         self.timer.start(1000)
 
@@ -225,9 +224,11 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         print(self.id)
         self.point = self.true_answer - self.false_answer
         try:
-            self.cursor.execute(f"""INSERT INTO Results_Students (a_true, a_false, a_none, popytka, id_student, point)
-                                 VALUES ({self.true_answer}, {self.false_answer}, {self.none_answer}, {self.pop}, {self.id}, {self.point})""")
-            #self.connection.commit()
+            if self.true_answer == 0 and self.false_answer == 0 and self.none_answer == 0:
+                self.none_answer = 10
+            self.cursor.execute(f"""INSERT INTO Results_Students (a_true, a_false, a_none, popytka, id_student, point, result)
+                                 VALUES ({self.true_answer}, {self.false_answer}, {self.none_answer}, {self.pop}, {self.id}, {self.point}, {self.quest_number})""")
+            self.connection.commit()
             self.cursor.execute(f"""UPDATE Students SET Popytky = {self.pop}
                                     WHERE id={self.id}""")
             self.connection.commit()
@@ -253,7 +254,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.label.setText(f"{self.quest_number}/10")
         self.pushButton_2.setText("Проверить ответ")
         text = self.cursor.execute(f"SELECT Question FROM Questions WHERE id={self.questions[self.quest_number - 1]}").fetchone()
-        set_text = f"Вопрос №{self.quest_number}. {text[0]}"
+        set_text = f"Вопрос №{self.quest_number + 1}. {text[0]}"
         self.textBrowser.setText(set_text)
         answers = self.cursor.execute(f"SELECT id, Answer FROM Answers WHERE Numer={self.questions[self.quest_number - 1]}").fetchall()
         random.shuffle(answers)
@@ -495,6 +496,10 @@ class RegistrationWindow(QMainWindow, Ui_RegMainWindow):
             self.statusbar.showMessage("Заполните оба поля!")
         else:
             try:
+                check_id = self.cur.execute(f"""SELECT id FROM Students WHERE FIO='{self.FIO}' AND gruppa='{self.group}'""").fetchone()
+                check_ids = self.cur.execute(f"""SELECT id FROM Students""").fetchall()
+                if check_id in check_ids:
+                    print(2222222)
                 self.cur.execute(f"""INSERT INTO Students (FIO, gruppa)
                                  VALUES ('{self.FIO}', '{self.group}')""")
             except Exception as e:
@@ -507,33 +512,6 @@ class RegistrationWindow(QMainWindow, Ui_RegMainWindow):
             self.secondWin = WorkWindow(self.FIO, self.group, self.id, self.connection)
             self.secondWin.show()
             self.close()
-
-    #     result = self.cur.execute(f"""SELECT login FROM Users
-    #                                   WHERE login = '{login}'
-    #                                   AND password = '{password}'""").fetchone()
-    #     if not result:
-    #         self.label.setText("Неправильный логин или пароль!")
-    #         return
-    #     else:
-    #         self.userId = self.cur.execute(f"""SELECT id FROM Users
-    #                                            WHERE login = '{login}'
-    #                                            AND password = '{password}'""").fetchone()[0]
-    #
-    # def push_reg(self):
-    #     login = self.lineEdit.text()
-    #     password = self.lineEdit_2.text()
-    #     try:
-    #         result = self.cur.execute(f"""SELECT login
-    #                                       FROM Users""").fetchall()
-    #         if result:
-    #             self.label.setText("Зарегистрироваться можно только один раз!")
-    #             return
-    #         self.cur.execute(f"""INSERT INTO Users(login, password)
-    #                              VALUES('{login}', '{password}')""")
-    #         self.connection.commit()
-    #         self.label.setText("Отлично! Теперь вы можете войти!")
-    #     except Exception as e:
-    #         print(e)
 
 
 if __name__ == '__main__':
