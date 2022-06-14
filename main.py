@@ -207,7 +207,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.button_group_ans.addButton(self.radioButton_3)
         self.button_group_ans.addButton(self.radioButton_4)
 
-        self.questions = [i for i in range(1, 31)]
+        self.questions = [i for i in range(1, 35)]
         # Вместо 11 сколько всего в базе вопросов
         random.shuffle(self.questions)
         self.questions = self.questions[:10]
@@ -424,7 +424,7 @@ class LabWindow(QMainWindow, Ui_LabMainWindow, QButtonGroup):
             # print(stroka)
             self.scene = QtWidgets.QGraphicsScene(self)
             self.graphicsView.setScene(self.scene)
-            self.pixmapItem = self.scene.addPixmap(QtGui.QPixmap(f"{stroka}.tiff").scaled(834, 1194))
+            self.pixmapItem = self.scene.addPixmap(QtGui.QPixmap(f"laba/{stroka}.tiff").scaled(834, 1194))
             # self.label.setPixmap(QtGui.QPixmap(f"{stroka}.tiff").scaled(556, 796))
         except Exception as e:
             print(e)
