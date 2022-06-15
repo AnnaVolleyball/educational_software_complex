@@ -251,7 +251,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.button_group_ans.addButton(self.radioButton_4)
 
         self.questions = [i for i in range(1, 35)]
-        # Вместо 11 сколько всего в базе вопросов
+        # Вместо 35 сколько всего в базе вопросов
         random.shuffle(self.questions)
         self.questions = self.questions[:10]
 
@@ -273,7 +273,7 @@ class TestWindow(QMainWindow, Ui_TestMainWindow):
         self.lcdNumber.display(text)
 
     def close_lec_and_time(self, ev):
-        #ЗДЕСЬ ЗАПИСЫВАЕМ РЕЗУЛЬТАТЫ ТЕСТА В БД
+        # ЗДЕСЬ ЗАПИСЫВАЕМ РЕЗУЛЬТАТЫ ТЕСТА В БД
         self.pop += 1
         try:
             if self.true_answer == 0 and self.false_answer == 0 and self.none_answer == 0:

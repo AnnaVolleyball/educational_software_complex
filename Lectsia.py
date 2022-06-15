@@ -941,10 +941,20 @@ class Ui_LecMainWindow(object):
         self.tab_6 = QtWidgets.QWidget()
         self.tab_6.setObjectName("tab_6")
         self.textBrowser_7 = QtWidgets.QTextBrowser(self.tab_6)
-        self.textBrowser_7.setGeometry(QtCore.QRect(20, 20, 981, 811))
+        self.textBrowser_7.setGeometry(QtCore.QRect(780, 30, 981, 811))
         self.textBrowser_7.setStyleSheet("background-color: rgb(153, 135, 255);\n"
 "font: 75 12pt \"MS Shell Dlg 2\";")
         self.textBrowser_7.setObjectName("textBrowser_7")
+        self.textBrowser_9 = QtWidgets.QTextBrowser(self.tab_6)
+        self.textBrowser_9.setGeometry(QtCore.QRect(10, 30, 731, 131))
+        self.textBrowser_9.setStyleSheet("background-color: rgb(153, 135, 255);\n"
+"font: 75 12pt \"MS Shell Dlg 2\";")
+        self.textBrowser_9.setObjectName("textBrowser_9")
+        self.textBrowser_10 = QtWidgets.QTextBrowser(self.tab_6)
+        self.textBrowser_10.setGeometry(QtCore.QRect(10, 190, 731, 651))
+        self.textBrowser_10.setStyleSheet("background-color: rgb(153, 135, 255);\n"
+"font: 75 12pt \"MS Shell Dlg 2\";")
+        self.textBrowser_10.setObjectName("textBrowser_10")
         self.tabWidget.addTab(self.tab_6, "")
         self.verticalLayout_10.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -1189,20 +1199,6 @@ class Ui_LecMainWindow(object):
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:72; font-style:normal;\">\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Цель работы:</span> определить монокулярное поле зрения правого и левого глаз для белого, синего, красного и зеленого цветов; проанализировать полученные графики исследований, определить любой недостаток зрения. Определить границы бинокулярного поля зрения. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Содержание отчета:</span> </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Что такое поле зрения и что оно определяет? </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Зависимость поля зрения от расположения палочек и колбочек. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Различие хроматического и ахроматического полей зрения. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>График исследования поля зрения в белом свете. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">5.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>График исследования поля зрения в свете различного спектрального состава (синий, зелёный, красный). </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">6.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>График бинокулярного поля зрения в белом свете. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">7.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Анализ полученных результатов: </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Степень идентификации объектов различных цветов для каждого глаза. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Определить (в градусах) наружную, внутренную, верхную и нижнюю границы полей зрения на каждый цвет для каждого глаза. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Определение наличия и вида скотомы для каждого глаза. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Сравненение с графиком нормального поля зрения. </p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  </p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Ход работы:</span> </p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Исследование поля зрения в белом свете. </p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Для исследования поля зрения в белом свете необходимо в окне «Лабораторная работа» выбрать радио-кнопки «0», «левый глаз» и «белый», где «0» - угол поворота периметра, «левый глаз» - исследуемый глаз, «белый» - выбранный цвет для исследования. </p>\n"
@@ -1213,6 +1209,29 @@ class Ui_LecMainWindow(object):
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">После того, как на графике будут проявлены все области, необходимо нажать кнопку с изображением дискеты и сохранить график. Повторить все вышеуказанные действия для правого глаза. </p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
 "<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Определение бинокулярного поля зрения. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Исследовать бинокулярное поле зрения необходимо только в белом свете. Для этого нужно в окне «Лабораторная работа» выбрать радио-кнопки «0», «левый глаз» и «белый», где «0» - угол поворота периметра, «левый глаз» - исследуемый глаз, «белый» - выбранный цвет для исследования. После того, как будет отмечена последняя точка для левого глаза при угле поворота периметра «330», на том же самом графике отметить результаты точно такого же измерения уже для правого глаза. Таким образом на графике должны получится поля зрения обоих глаз. Их совмещенные графики и будут являться графиком бинокулярного зрения.</p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
-"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.   Анализ полученных результатов</p></body></html>"))
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.   Анализ полученных результатов</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Для проведения анализа полученных результатов, в окне «Содержание отчета» есть небольшой план, на который студент должен ориентироваться при написании вывода. Все необходимые материалы для написания анализа можно найти во вкладке «Методические материалы», но также будет полезно прочитать все представленные материалы в окне &quot;Лекция&quot;.</p></body></html>"))
+        self.textBrowser_9.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Цель работы:</span> определить монокулярное поле зрения правого и левого глаз для белого, синего, красного и зеленого цветов; проанализировать полученные графики исследований, определить любой недостаток зрения. Определить границы бинокулярного поля зрения. </p></body></html>"))
+        self.textBrowser_10.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Содержание отчета:</span> </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.<span style=\" font-family:\'Times New Roman\'; font-size:7pt;\">      </span>Что такое поле зрения и что оно определяет? </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.<span style=\" font-family:\'Times New Roman\'; font-size:7pt;\">      </span>Зависимость поля зрения от расположения палочек и колбочек. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.<span style=\" font-family:\'Times New Roman\'; font-size:7pt;\">      </span>Различие хроматического и ахроматического полей зрения. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.<span style=\" font-family:\'Times New Roman\'; font-size:7pt;\">      </span>График исследования поля зрения в белом свете. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">5.<span style=\" font-family:\'Times New Roman\'; font-size:7pt;\">      </span>График исследования поля зрения в свете различного спектрального состава (синий, зелёный, красный). </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">6.<span style=\" font-family:\'Times New Roman\'; font-size:7pt;\">      </span>График бинокулярного поля зрения в белом свете. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">7.<span style=\" font-family:\'Times New Roman\'; font-size:7pt;\">      </span>Анализ полученных результатов: </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Степень идентификации объектов различных цветов для каждого глаза. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Определить (в градусах) наружную, внутренную, верхную и нижнюю границы полей зрения на каждый цвет для каждого глаза. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Определение наличия и вида скотомы для каждого глаза. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Сравненение с графиком нормального поля зрения. </p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "  Методические указания к работе  "))
