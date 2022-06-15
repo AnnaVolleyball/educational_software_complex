@@ -56,7 +56,7 @@
        <widget class="QPushButton" name="pushButton">
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>176</width>
           <height>51</height>
          </size>
         </property>
@@ -68,8 +68,20 @@
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(156, 20, 222, 255);
-background-color: white;</string>
+         <string notr="true"> QPushButton {
+     background-color: white;
+	 color: rgb(156, 20, 222, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     min-width: 10em;
+     padding: 6px;
+ }
+ QPushButton:pressed {
+	 background-color: rgb(165, 165, 247);
+     border-style: inset;
+ }</string>
         </property>
         <property name="text">
          <string>Построить график</string>
@@ -162,7 +174,7 @@ background-color: transparent;</string>
        <widget class="QPushButton" name="pushButton_2">
         <property name="minimumSize">
          <size>
-          <width>0</width>
+          <width>176</width>
           <height>51</height>
          </size>
         </property>
@@ -174,8 +186,20 @@ background-color: transparent;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(156, 20, 222, 255);
-background-color: white;</string>
+         <string notr="true"> QPushButton {
+     background-color: white;
+	 color: rgb(156, 20, 222, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     min-width: 10em;
+     padding: 6px;
+ }
+ QPushButton:pressed {
+	 background-color: rgb(165, 165, 247);
+     border-style: inset;
+ }</string>
         </property>
         <property name="text">
          <string>Проявить область</string>

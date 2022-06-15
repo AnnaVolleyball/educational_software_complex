@@ -17,24 +17,72 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));</string>
+   </property>
    <layout class="QVBoxLayout" name="verticalLayout_10">
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="font">
        <font>
+        <pointsize>9</pointsize>
         <weight>75</weight>
         <bold>true</bold>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));</string>
+       <string notr="true">QTabWidget::pane { /* Рамка виджета со вкладками */
+     border-top: 2px solid rgb(255, 255, 255);
+	 text-color: rgb(255, 255, 255);
+ }
+QTabWidget::tab-bar {
+     left: 5px; /* сдвигаем вправо на 5px */
+ }
+
+ /* Применяем стиль ко вкладке используя субэлемент управления tab. Обратите внимание на то, что
+     оно читается как QTabBar, а _не_ QTabWidget */
+ QTabBar::tab {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+	 
+	 color: rgb(255, 255, 255);
+	 background-color: rgb(71, 16, 235);
+     border: 2px solid  rgb(255, 255, 255);
+     border-bottom-color:  rgb(255, 255, 255); /* такой же цвет как у панели */
+     border-top-left-radius: 4px;
+     border-top-right-radius: 4px;
+     min-width: 8ex;
+     padding: 2px;
+ }
+
+ QTabBar::tab:selected, QTabBar::tab:hover {
+     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+ }
+
+ QTabBar::tab:selected {
+	 border-color: rgb(255, 255, 255);
+	 background-color: rgb(160, 47, 252);
+     border-bottom-color: rgb(255, 255, 255); /* такой же цвет как у панели */
+ }
+
+ QTabBar::tab:!selected {
+     margin-top: 2px; /* делаем невыбранные вкладки меньше */
+ }
+
+</string>
       </property>
       <property name="currentIndex">
        <number>3</number>
       </property>
       <widget class="QWidget" name="tab">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
        <attribute name="title">
-        <string>Лекция. Часть 1</string>
+        <string>  Лекция. Часть 1  </string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_3">
         <item row="2" column="0">
@@ -243,7 +291,7 @@ background-color: transparent;</string>
       </widget>
       <widget class="QWidget" name="tab_3">
        <attribute name="title">
-        <string>Лекция. Часть 2</string>
+        <string>  Лекция. Часть 2  </string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_5">
         <item row="3" column="0">
@@ -617,7 +665,7 @@ p, li { white-space: pre-wrap; }
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
-        <string>Лекция. Часть 3</string>
+        <string>  Лекция. Часть 3  </string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_4">
         <item row="0" column="0">
@@ -856,96 +904,1172 @@ background-color: transparent;</string>
       </widget>
       <widget class="QWidget" name="tab_2">
        <attribute name="title">
-        <string>Методические материалы для работы</string>
+        <string>  Методические материалы для работы  </string>
        </attribute>
-       <widget class="QTextBrowser" name="textBrowser_8">
-        <property name="geometry">
-         <rect>
-          <x>20</x>
-          <y>20</y>
-          <width>811</width>
-          <height>821</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <family>MS Shell Dlg 2</family>
-          <pointsize>12</pointsize>
-          <weight>75</weight>
-          <italic>false</italic>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(153, 135, 255);</string>
-        </property>
-        <property name="html">
-         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+       <layout class="QGridLayout" name="gridLayout_6">
+        <item row="0" column="0" rowspan="2">
+         <widget class="QTextBrowser" name="textBrowser_8">
+          <property name="font">
+           <font>
+            <family>MS Shell Dlg 2</family>
+            <pointsize>12</pointsize>
+            <weight>9</weight>
+            <italic>false</italic>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(153, 135, 255);
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+          </property>
+          <property name="html">
+           <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:600; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Считается, что в сетчатке глаза человека есть три вида колбочек, максимумы чувствительности которых приходятся на красный, зелёный и синий участки спектра, т. е. соответствуют трём «основным» цветам. Они обеспечивают распознавание тысяч цветов и оттенков. Очень сильный свет возбуждает все 3 типа рецепторов и потому воспринимается как излучение слепяще-белого цвета. Равномерное раздражение всех трёх элементов, соответствующее средневзвешенному дневному свету, также вызывает ощущение белого цвета. В зависимости от расположения палочек и колбочек в сетчатке (колбочки расположены в центре, а палочки – по бокам, а между ними – палочки и колбочки в хаотическом порядке) размер поля зрения меняется для разного воспринимаемого цвета. Самое большое поле зрения у белого цвета, затем у синего, красного и зеленого (рис. 9.6). Из-за носа и щек поле зрения имеет слегка неправильную, асимметричную форму. Для белого цвета горизонтальная протяженность поля зрения составляет примерно 180º.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Свет с разной длиной волны по-разному стимулирует разные типы колбочек. Например, желто-зеленый свет в равной степени стимулирует колбочки L и M-типов, но слабее стимулирует колбочки S-типа. Красный свет стимулирует колбочки L-типа намного сильнее, чем колбочки M-типа, а S-типа не стимулирует почти совсем. Зелено-голубой свет стимулирует рецепторы M-типа сильнее, чем L-типа, а рецепторы S-типа – ещё немного сильнее; свет с этой длиной волны наиболее сильно стимулирует также палочки. Фиолетовый свет стимулирует почти исключительно колбочки S-типа. Мозг воспринимает комбинированную информацию от разных рецепторов, что обеспечивает различное восприятие света с разной длиной волны.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe Script','MS Shell Dlg 2';&quot;&gt;Периметрия - это методика для оценки границ поля зрения. Поле зрения - это совокупность всех точек в пространстве, которое видит человек одним глазом при фиксированном по центру взоре. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe Script','MS Shell Dlg 2';&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe Script','MS Shell Dlg 2';&quot;&gt;Бинокулярное зрение - это зрение при помощи двух глаз. Бинокулярное зрение имеет большие преимущества: оно значительно увеличивает поле зрения, участвует в восприятии глубины пространства, размеров и формы объектов, оценке расстояния до объектов. &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Полем зрения называется пространство, в пределах которого видны все его точки при фиксированном положении глаза. Поле зрения в значительной степени определяет пропускную способность зрительного анализатора, т. е. то максимальное количество информации, которое способны зарегистрировать органы зрения за единицу времени. Между размерами поля зрения и пропускной способностью зрительного анализатора существует прямая зависимость – чем больше поле зрения, тем больше его пропускная способность. Размеры поля зрения значительно варьируются у различных людей. Эти индивидуальные различия зависят, например, от профессиональной деятельности, в частности, от занятия различными видами спорта. У футболистов, хоккеистов, волейболистов и других представителей игровых видов спорта границы поля зрения существенно шире, чем у людей, не занимающихся спортом. Также поле зрения увеличивается с возрастом. Поле зрения особенно интенсивно развивается в дошкольном и младшем школьном возрасте. Так, например, за период от 6 до 7,5 лет поле зрения возрастает в 10 раз. В возрасте 7 лет оно составляет 80 % от размеров поля зрения взрослого. В развитии поля зрения наблюдаются и половые особенности. В 6 лет поле зрения у мальчиков больше, чем у девочек, в 7–8 лет наблюдается обратное соотношение. В последующие годы размеры поля зрения сравниваются, а с 13–14 лет его размеры у девочек больше. Расширение поля зрения продолжается до 20–30 летнего возраста. В старости границы поля зрения несколько сужаются. Это сужение идет неравномерно по всем направлениям, не имеет прямой корреляции с возрастом и зависит от ряда факторов, в том числе от профессии. Различают цветовое (хроматическое) и бесцветное (ахроматическое) поле зрения. Ахроматическое поле зрения больше хроматического, т. е. наиболее велико поле зрения для белого цвета (т. е. для смешанного цвета). Это объясняется тем, что палочки, чувствительные ко всем видимым лучам и воспринимающие не цвет, а свет, находятся в большом количестве на периферии сетчатки. Границы ахроматического поля зрения составляют: кнаружи примерно 100º, кнутри и кверху – 60º и книзу – 65º. Для различных цветов поле зрения также неодинаково. Немного меньше, чем для белого, поле зрения для желтого цвета, ещё меньше для синего цвета, далее идет красный цвет, самое узкое поле зрения для зеленого цвета.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Измерение поля зрения - это измерение пространства, которое человек видит неподвижным глазом. Изменения поля зрения могут носить различный характер: в одних случаях оно концентрически сужено, иногда выпадают отдельные участки поля зрения как в центре (центральные скотомы), так и на периферии (периферические скотомы). При заболеваниях головного мозга нередко наблюдается двустороннее выпадение поля зрения - гемианопсия.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_18">
-        <property name="geometry">
-         <rect>
-          <x>890</x>
-          <y>20</y>
-          <width>461</width>
-          <height>201</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-        <property name="pixmap">
-         <pixmap>shem_step_vospr_obj.png</pixmap>
-        </property>
-        <property name="scaledContents">
-         <bool>true</bool>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_24">
-        <property name="geometry">
-         <rect>
-          <x>890</x>
-          <y>240</y>
-          <width>591</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">color: rgb(255, 255, 255);
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Считается, что в сетчатке глаза человека есть три вида колбочек, максимумы чувствительности которых приходятся на красный, зелёный и синий участки спектра, т. е. соответствуют трём «основным» цветам. Они обеспечивают распознавание тысяч цветов и оттенков. Очень сильный свет возбуждает все 3 типа рецепторов и потому воспринимается как излучение слепяще-белого цвета. Равномерное раздражение всех трёх элементов, соответствующее средневзвешенному дневному свету, также вызывает ощущение белого цвета. В зависимости от расположения палочек и колбочек в сетчатке (колбочки расположены в центре, а палочки – по бокам, а между ними – палочки и колбочки в хаотическом порядке) размер поля зрения меняется для разного воспринимаемого цвета. Самое большое поле зрения у белого цвета, затем у синего, красного и зеленого. Из-за носа и щек поле зрения имеет слегка неправильную, асимметричную форму. Для белого цвета горизонтальная протяженность поля зрения составляет примерно 180º. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Свет с разной длиной волны по-разному стимулирует разные типы колбочек. Например, желто-зеленый свет в равной степени стимулирует колбочки L и M-типов, но слабее стимулирует колбочки S-типа. Красный свет стимулирует колбочки L-типа намного сильнее, чем колбочки M-типа, а S-типа не стимулирует почти совсем. Зелено-голубой свет стимулирует рецепторы M-типа сильнее, чем L-типа, а рецепторы S-типа – ещё немного сильнее; свет с этой длиной волны наиболее сильно стимулирует также палочки. Фиолетовый свет стимулирует почти исключительно колбочки S-типа. Мозг воспринимает комбинированную информацию от разных рецепторов, что обеспечивает различное восприятие света с разной длиной волны. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Периметрия&lt;/span&gt;&lt;span style=&quot; font-weight:400;&quot;&gt; — это методика для оценки границ поля зрения. Поле зрения — это совокупность всех точек в пространстве, которое видит человек одним глазом при фиксированном по центру взоре. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Монокулярное зрение&lt;/span&gt;&lt;span style=&quot; font-weight:400;&quot;&gt; характеризуется тем, что предметы и движущиеся объекты, попадающие в поле зрения смотрящего субъекта, воспринимаются преимущественно лишь одним глазом. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Бинокулярное зрение&lt;/span&gt;&lt;span style=&quot; font-weight:400;&quot;&gt; – восприятие окружающих предметов двумя глазами – обеспечивается в корковом отделе зрительного анализатора благодаря сложнейшему физиологическому механизму зрения – фузии, т. е. слиянию зрительных образов, возникающих отдельно в каждом глазу (монокулярное изображение), в единое сочетанное зрительное восприятие. Бинокулярное зрение имеет большие преимущества: оно значительно увеличивает поле зрения, участвует в восприятии глубины пространства, размеров и формы объектов, оценке расстояния до объектов. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Полем зрения называется пространство, в пределах которого видны все его точки при фиксированном положении глаза. Поле зрения в значительной степени определяет пропускную способность зрительного анализатора, т. е. то максимальное количество информации, которое способны зарегистрировать органы зрения за единицу времени. Между размерами поля зрения и пропускной способностью зрительного анализатора существует прямая зависимость – чем больше поле зрения, тем больше его пропускная способность. Размеры поля зрения значительно варьируются у различных людей. Эти индивидуальные различия зависят, например, от профессиональной деятельности, в частности, от занятия различными видами спорта. У футболистов, хоккеистов, волейболистов и других представителей игровых видов спорта границы поля зрения существенно шире, чем у людей, не занимающихся спортом. Также поле зрения увеличивается с возрастом. Поле зрения особенно интенсивно развивается в дошкольном и младшем школьном возрасте. Так, например, за период от 6 до 7,5 лет поле зрения возрастает в 10 раз. В возрасте 7 лет оно составляет 80 % от размеров поля зрения взрослого. В развитии поля зрения наблюдаются и половые особенности. В 6 лет поле зрения у мальчиков больше, чем у девочек, в 7–8 лет наблюдается обратное соотношение. В последующие годы размеры поля зрения сравниваются, а с 13–14 лет его размеры у девочек больше. Расширение поля зрения продолжается до 20–30 летнего возраста. В старости границы поля зрения несколько сужаются. Это сужение идет неравномерно по всем направлениям, не имеет прямой корреляции с возрастом и зависит от ряда факторов, в том числе от профессии. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;  &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Различают цветовое (хроматическое) и бесцветное (ахроматическое) поле зрения. Ахроматическое поле зрения больше хроматического, т. е. наиболее велико поле зрения для белого цвета (т. е. для смешанного цвета). Это объясняется тем, что палочки, чувствительные ко всем видимым лучам и воспринимающие не цвет, а свет, находятся в большом количестве на периферии сетчатки. Для различных цветов поле зрения также неодинаково. Немного меньше, чем для белого, поле зрения для желтого цвета, ещё меньше для синего цвета, далее идет красный цвет, самое узкое поле зрения для зеленого цвета. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Измерение поля зрения&lt;/span&gt;&lt;span style=&quot; font-weight:400;&quot;&gt; — это измерение пространства, которое человек видит неподвижным глазом. Изменения поля зрения могут носить различный характер: в одних случаях оно концентрически сужено, иногда выпадают отдельные участки поля зрения как в центре (центральные скотомы), так и на периферии (периферические скотомы). При заболеваниях головного мозга нередко наблюдается двустороннее выпадение поля зрения - гемианопсия. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Регистрация результатов периметрии должна быть однотипной и удобной для их сравнения. Результаты измерений заносят на специальные стандартные бланки отдельно для каждого глаза. Бланк состоит из серии кругов с интервалом между ними 10°, которые через центр поля зрения пересекает координатная сетка, обо­значающая меридианы исследования. Последние наносят через 10 или 15°. &lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Схемы полей зрения принято располагать для правого глаза справа, для лево­го – слева; при этом височные половины поля зрения обращены кнаружи, а но­совые – кнутри. На&lt;/span&gt; каждой схеме принято обозначать нормальные границы поля зрения на белый и хроматические цвета.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Паталогические изменения поля зрения&lt;/span&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Все многообразие патологических изменений (дефектов) поля зрения можно свести к двум основным видам: &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1) сужение границ поля зрения (концентрическое или локальное); &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2) очаговые выпадения зрительной функции – скотомы.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Концентрическое сужение поля зрения может быть сравнительно небольшим или простираться почти до точки фиксации – трубочное поле зрения. Концентрическое сужение развивается в связи с различными органическими заболеваниями глаза (пигментное перерождение сетчатки, невриты и атрофии зрительного нерва, периферические хориоретиниты, поздние стадии глаукомы), однако оно может быть и функциональным – при неврозах, неврастении, истерии.&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Локальные сужения границ поля зрения характеризуются сужением его в каком-либо участке при нормальных размерах на остальном протяжении. Такие дефекты могут быть одно- и двусторонними. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Большое диагностическое значение имеет двустороннее выпадение половины поля зрения – &lt;span style=&quot; font-weight:600;&quot;&gt;гемианопсия&lt;/span&gt;. Гомонимная гемианопсия — это половинчатое одноименное (право- или левостороннее) выпадение полей зрения в обоих глазах. Оно возникает при наличии патологии, затрагивающей один из зрительных трактов. Если поражается правый зрительный тракт, то возникает левосторонняя гомонимная гемианопсия, т. е. выпадают левые половины полей зрения обоих глаз. При поражении левого зрительного тракта развивается правосторонняя гемианопсия. Гемианопсии делят на гомонимные (одноименные) и гетеронимные (разноименные). Они возникают при поражении зрительного пути в области зрительного перекреста или позади него в связи с неполным перекрестом нервных волокон. Иногда гемианопсии обнаруживает сам больной, но чаще их выявляют при исследовании поля зрения. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Гомонимная гемианопсия &lt;/span&gt;характеризуется выпадением височной половины поля зрения в одном глазу и носовой – в другом. Она обусловлена поражением зрительного пути на стороне, противоположной выпадению поля зрения. Характер гемианопсии изменяется в зависимости от локализации участка поражения зрительного пути. Гемианопсия может быть полной при выпадении всей половины поля зрения или частичной, квадрантной. При этом граница дефекта проходит по средней линии, а при квадрантной гемианопсии начинается от точки фиксации. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;В начальной стадии опухолевого или воспалительного процесса может быть сдавлена только часть зрительного тракта. В этом случае регистрируются симметричные &lt;span style=&quot; font-weight:600;&quot;&gt;гомонимные квадрантные гемианопсии&lt;/span&gt;, т. е. выпадает четверть поля зрения в каждом глазу, например пропадает левая верхняя четверть поля зрения как в правом, так и в левом глазу. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Когда опухоль мозга затрагивает корковые отделы зрительных путей, вертикальная линия гомонимных выпадений полей зрения не захватывает центральные отделы, она обходит точку фиксации, т. е. зону проекции желтого пятна. Это объясняется тем, что волокна от нейроэлементов центрального отдела сетчатки уходят в оба полушария головного мозга. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Причины гомонимной гемианопсии различны: опухоли, кровоизлияния и воспалительные заболевания головного мозга. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Гетеронимная гемианопсия&lt;/span&gt; характеризуется выпадением наружных или внутренних половин поля зрения и обусловлена поражением зрительного пути в области зрительного перекреста. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Битемпоральная гемианопсия&lt;/span&gt; – выпадение наружных половин поля зрения. Она развивается при локализации патологического очага в области средней части зрительного перекреста и является частым симпто­мом опухоли гипофиза. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Биназальная гемианопсия&lt;/span&gt; – выпадение носовых половин поля зрения – развивается при поражении неперекрещенных волокон зрительного пути в области зрительного перекреста. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Это возможно при двустороннем склерозе или аневризмах – внутренней сонной артерии и любом другом давлении на зрительный перекрест с обеих сторон. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Очаговый дефект поля зрения, не сливающийся с его периферическими границами, называется скотомой. Скотома может отмечаться непосредственно самим больным в виде тени или пятна. Такая скотома называется положительной. Скотомы, не вызывающие у больного субъективных ощущений и обнаруживаемые только с помощью специальных методов исследования, носят название отрицательных. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Скотомы могут быть в виде круга, овала, дуги, сектора и иметь неправильную форму. В зависимости от локализации дефекта в поле зрения по отношению к точке фиксации различают &lt;span style=&quot; font-weight:600;&quot;&gt;центральные, перицентральные, парацентральные, секторальные и различного вида периферические скотомы.&lt;/span&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Физиологические скотомы могут существенно увеличиваться. Увеличение размеров слепого пятна является ранним признаком некоторых заболеваний (глаукомы, застойного диска зрительного нерва, гипертонической болезни и др.), поэто­му измерение его имеет большое диагностическое значение. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;По месту расположения скотом в поле зрения выделяют периферические, центральные и парацентральные скотомы. На удалении 12-18 градусов от центра в височной половине располагается слепое пятно. Это физиологическая абсолютная скотома. Она соответствует проекции диска зрительного нерва. Увеличение слепого пятна имеет важное диагностическое значение. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Центральные и парацентральные скотомы выявляют при кампиметрии. Пациент фиксирует взглядом светлую точку в центре плоской черной доски и следит за появлением и исчезновением белой (или цветной) метки, которую врач перемещает по доске, и отмечает границы дефектов поля зрения. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Центральные и парацентральные скотомы появляются при поражении папилломакулярного пучка зрительного нерва, сетчатки и хориоидеи. Центральная скотома может быть первым проявлением рассеянного склероза. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_12">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QStackedWidget" name="stackedWidget_2">
+            <property name="styleSheet">
+             <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
+            </property>
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="page_3">
+             <widget class="QLabel" name="label_35">
+              <property name="geometry">
+               <rect>
+                <x>230</x>
+                <y>50</y>
+                <width>431</width>
+                <height>281</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/lokal_syzh.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_27">
+              <property name="geometry">
+               <rect>
+                <x>160</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
 background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string>Схема степени восприятия объектов:
-зона 1 – высокая степень идентификации цветов;
-зона 2 – средняя степень идентификации цветов (видны практически все цвета);
-зона 3 – Низкая степень идентификации цветов (видимы некоторые цвета).</string>
-        </property>
-       </widget>
+              </property>
+              <property name="text">
+               <string>Локальное сужение поля зрения</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_7">
+             <widget class="QLabel" name="label_36">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Гомонимная гемианопсия</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_37">
+              <property name="geometry">
+               <rect>
+                <x>140</x>
+                <y>50</y>
+                <width>621</width>
+                <height>281</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/poln_gemi.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_8">
+             <widget class="QLabel" name="label_38">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Гомонимная квадрантная гемианопсия</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_39">
+              <property name="geometry">
+               <rect>
+                <x>110</x>
+                <y>60</y>
+                <width>671</width>
+                <height>271</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/kvadr_gemi.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_9">
+             <widget class="QLabel" name="label_40">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>51</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Гомонимная гемианопсия 
+ (обхождение точки фиксации)</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_41">
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>90</y>
+                <width>681</width>
+                <height>241</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/sohr_zentr_zren_gomo_gemi.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_10">
+             <widget class="QLabel" name="label_42">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Гетеронимная битемпоральная гемианопсия</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_43">
+              <property name="geometry">
+               <rect>
+                <x>130</x>
+                <y>60</y>
+                <width>661</width>
+                <height>261</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/bitempor_gem.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_11">
+             <widget class="QLabel" name="label_44">
+              <property name="geometry">
+               <rect>
+                <x>160</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Гетеронимная биназальная гемианопсия</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_45">
+              <property name="geometry">
+               <rect>
+                <x>120</x>
+                <y>60</y>
+                <width>671</width>
+                <height>271</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/binazal_gemi.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_12">
+             <widget class="QLabel" name="label_46">
+              <property name="geometry">
+               <rect>
+                <x>160</x>
+                <y>10</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Центральная скотома</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_47">
+              <property name="geometry">
+               <rect>
+                <x>210</x>
+                <y>40</y>
+                <width>461</width>
+                <height>291</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/zent_skot.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_13">
+             <widget class="QLabel" name="label_48">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Перицентральная скотома</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_49">
+              <property name="geometry">
+               <rect>
+                <x>260</x>
+                <y>50</y>
+                <width>401</width>
+                <height>291</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/perezentr_skot.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_14">
+             <widget class="QLabel" name="label_50">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>10</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Парацентральная скотома</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_51">
+              <property name="geometry">
+               <rect>
+                <x>250</x>
+                <y>40</y>
+                <width>401</width>
+                <height>291</height>
+               </rect>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/parazentr_skotomy.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_15">
+             <widget class="QLabel" name="label_52">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Периферическая (секторальная) скотома</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_53">
+              <property name="geometry">
+               <rect>
+                <x>260</x>
+                <y>50</y>
+                <width>381</width>
+                <height>281</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/sektor_skot.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_4">
+             <widget class="QLabel" name="label_28">
+              <property name="geometry">
+               <rect>
+                <x>150</x>
+                <y>60</y>
+                <width>621</width>
+                <height>261</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/conzentr_syzh.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_14">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Концентрическое сужение поля зрения</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_6">
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="minimumSize">
+               <size>
+                <width>176</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"> QPushButton {
+     background-color: white;
+	 color: rgb(156, 20, 222, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     min-width: 10em;
+     padding: 6px;
+ }
+ QPushButton:pressed {
+	 background-color: rgb(165, 165, 247);
+     border-style: inset;
+ }</string>
+              </property>
+              <property name="text">
+               <string>Назад</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_4">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_4">
+              <property name="minimumSize">
+               <size>
+                <width>176</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"> QPushButton {
+     background-color: white;
+	 color: rgb(156, 20, 222, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     min-width: 10em;
+     padding: 6px;
+ }
+ QPushButton:pressed {
+	 background-color: rgb(165, 165, 247);
+     border-style: inset;
+ }</string>
+              </property>
+              <property name="text">
+               <string>Вперед</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_6">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="0" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_11">
+          <item>
+           <widget class="QStackedWidget" name="stackedWidget">
+            <property name="styleSheet">
+             <string notr="true">background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));</string>
+            </property>
+            <property name="currentIndex">
+             <number>2</number>
+            </property>
+            <widget class="QWidget" name="page">
+             <widget class="QLabel" name="label_29">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Монокулярное поле зрения</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_30">
+              <property name="geometry">
+               <rect>
+                <x>230</x>
+                <y>50</y>
+                <width>441</width>
+                <height>301</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/monokyl_izm.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_5">
+             <widget class="QLabel" name="label_31">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Бинокулярное поле зрения</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_32">
+              <property name="geometry">
+               <rect>
+                <x>230</x>
+                <y>50</y>
+                <width>461</width>
+                <height>291</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/binokyl_izm.jpg</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_6">
+             <widget class="QLabel" name="label_33">
+              <property name="geometry">
+               <rect>
+                <x>170</x>
+                <y>10</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Нормальные границы полей зрения</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_34">
+              <property name="geometry">
+               <rect>
+                <x>120</x>
+                <y>50</y>
+                <width>641</width>
+                <height>281</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/norma_pole_zr_mono.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </widget>
+            <widget class="QWidget" name="page_2">
+             <widget class="QLabel" name="label_24">
+              <property name="geometry">
+               <rect>
+                <x>150</x>
+                <y>290</y>
+                <width>591</width>
+                <height>71</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Зона 1 – высокая степень идентификации цветов;
+Зона 2 – средняя степень идентификации цветов (видны практически все цвета);
+Зона 3 – Низкая степень идентификации цветов (видимы некоторые цвета).</string>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_18">
+              <property name="geometry">
+               <rect>
+                <x>110</x>
+                <y>70</y>
+                <width>671</width>
+                <height>211</height>
+               </rect>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap>metod_materialy/shem_step_vospr_obj.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+             <widget class="QLabel" name="label_13">
+              <property name="geometry">
+               <rect>
+                <x>150</x>
+                <y>20</y>
+                <width>571</width>
+                <height>20</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+              </property>
+              <property name="text">
+               <string>Схема степени восприятия объектов</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+             </widget>
+            </widget>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="minimumSize">
+               <size>
+                <width>176</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"> QPushButton {
+     background-color: white;
+	 color: rgb(156, 20, 222, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     min-width: 10em;
+     padding: 6px;
+ }
+ QPushButton:pressed {
+	 background-color: rgb(165, 165, 247);
+     border-style: inset;
+ }</string>
+              </property>
+              <property name="text">
+               <string>Назад</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="minimumSize">
+               <size>
+                <width>176</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>MS Shell Dlg 2</family>
+                <pointsize>11</pointsize>
+                <weight>75</weight>
+                <italic>false</italic>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"> QPushButton {
+     background-color: white;
+	 color: rgb(156, 20, 222, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     min-width: 10em;
+     padding: 6px;
+ }
+ QPushButton:pressed {
+	 background-color: rgb(165, 165, 247);
+     border-style: inset;
+ }</string>
+              </property>
+              <property name="text">
+               <string>Вперед</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_3">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
       </widget>
       <widget class="QWidget" name="tab_6">
        <attribute name="title">
-        <string>Методические указания к работе</string>
+        <string>  Методические указания к работе  </string>
        </attribute>
        <widget class="QTextBrowser" name="textBrowser_7">
         <property name="geometry">
@@ -958,7 +2082,39 @@ background-color: transparent;</string>
         </property>
         <property name="styleSheet">
          <string notr="true">background-color: rgb(153, 135, 255);
-font: 75 10pt &quot;Segoe Script&quot;;</string>
+font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="html">
+         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:12pt; font-weight:72; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Цель работы:&lt;/span&gt; определить монокулярное поле зрения правого и левого глаз для белого, синего, красного и зеленого цветов; проанализировать полученные графики исследований, определить любой недостаток зрения. Определить границы бинокулярного поля зрения. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Содержание отчета:&lt;/span&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;Что такое поле зрения и что оно определяет? &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;Зависимость поля зрения от расположения палочек и колбочек. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;3.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;Различие хроматического и ахроматического полей зрения. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;4.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;График исследования поля зрения в белом свете. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;5.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;График исследования поля зрения в свете различного спектрального состава (синий, зелёный, красный). &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;6.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;График бинокулярного поля зрения в белом свете. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;7.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;Анализ полученных результатов: &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	- Степень идентификации объектов различных цветов для каждого глаза. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	- Определить (в градусах) наружную, внутренную, верхную и нижнюю границы полей зрения на каждый цвет для каждого глаза. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	- Определение наличия и вида скотомы для каждого глаза. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;	- Сравненение с графиком нормального поля зрения. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;  &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Ход работы:&lt;/span&gt; &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;1.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;Исследование поля зрения в белом свете. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Для исследования поля зрения в белом свете необходимо в окне «Лабораторная работа» выбрать радио-кнопки «0», «левый глаз» и «белый», где «0» - угол поворота периметра, «левый глаз» - исследуемый глаз, «белый» - выбранный цвет для исследования. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;После этого необходимо найти на графике точку. Масштаб на графике 1:10. Отметка «9» на линейке соответствует середине и уровню положения глаз. Далее необходимо рассчитать расстояние от начальной точки до положения момента распознавания объекта белого цвета. Для этого мы вычитаем из отметки момента распознавания отметку 9 и затем умножаем на 10. Далее нажимаем кнопку «Построить график». Выбираем радио-кнопку с нужным цветом, выбираем прямую с нужным углом поворота, а затем круговую область с соответствующим полученному значением. На пересечении этих линий мы отмечаем точку нажатием левой кнопки мыши. Далее необходимо выбрать угол поворота 30° и повторить все вышеописанные действия. Когда будет отмечена последняя точка на прямой с углом поворота 330° , необходимо нажать кнопку «Проявить области». После этого нажать кнопку с изображением дискеты, чтобы сохранить полученный график. Далее выбрать радио-кнопки «0», «белый», «правый глаз» и повторить все действия как для левого глаза, после чего повторно сохранить график. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;2.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;Исследование поля зрения в свете различного спектра (синий, красный, зелёный).   &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Для исследования поля зрения в синем свете необходимо выбрать радио-кнопки «0», «синий», «левый глаз». Далее повторить все действия как при измерении с белым светом, затем, после измерения при угле поворота 330° нажать кнопку «Проявить область», затем в левой части экрана выбрать радио-кнопки «0», «зелёный», «левый глаз».  Для отметки точек выбранного цвета необходимо в правой части экрана выбрать радио-кнопку нужного цвета, и только после этого отмечать точки. После отметки всех точек необходимо нажать кнопку «Проявить область» и приступить к исследованию поля зрения красного цвета. &lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;После того, как на графике будут проявлены все области, необходимо нажать кнопку с изображением дискеты и сохранить график. Повторить все вышеуказанные действия для правого глаза. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;3.&lt;span style=&quot; font-family:'Times New Roman'; font-size:7pt; font-weight:400;&quot;&gt;      &lt;/span&gt;Определение бинокулярного поля зрения. &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;4.   Анализ полученных результатов&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
        </widget>
       </widget>

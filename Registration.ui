@@ -214,8 +214,20 @@ background-color: transparent;</string>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">color: rgb(156, 20, 222, 255);
-background-color: white;</string>
+         <string notr="true"> QPushButton {
+     background-color: white;
+	 color: rgb(156, 20, 222, 255);
+     border-style: outset;
+     border-width: 2px;
+     border-radius: 10px;
+     border-color: beige;
+     min-width: 10em;
+     padding: 6px;
+ }
+ QPushButton:pressed {
+	 background-color: rgb(165, 165, 247);
+     border-style: inset;
+ }</string>
         </property>
         <property name="text">
          <string>Продолжить</string>

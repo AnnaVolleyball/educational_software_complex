@@ -18,6 +18,7 @@ from Info import Ui_InfoMainWindow
 from Out_Time import Ui_TimeMainWindow
 from Registration import Ui_RegMainWindow
 from Results import Ui_ResMainWindow
+from Obzor import Ui_ObzMainWindow
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
@@ -36,6 +37,7 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         self.pushButton_2.clicked.connect(self.show_lab)
         self.pushButton_3.clicked.connect(self.show_test)
         self.pushButton_7.clicked.connect(self.show_info)
+        self.pushButton_4.clicked.connect(self.show_obzor)
 
         self.FIO = FIO
         self.group = group
@@ -103,6 +105,10 @@ class WorkWindow(QMainWindow, Ui_MainWindow):
         self.InfoWin.show()
         # self.close()
 
+    def show_obzor(self):
+        self.ObzWin = ObzWindow()
+        self.ObzWin.show()
+
 
 class InfoWindow(QMainWindow, Ui_InfoMainWindow):
     def __init__(self):
@@ -110,6 +116,14 @@ class InfoWindow(QMainWindow, Ui_InfoMainWindow):
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.setWindowTitle("О программе")
+
+
+class ObzWindow(QMainWindow, Ui_ObzMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.setupUi(self)
+        self.setWindowIcon(QtGui.QIcon('icon.png'))
+        self.setWindowTitle("Обзор других офтальмологических средств")
 
 
 class ResWindow(QMainWindow, Ui_ResMainWindow):
@@ -175,6 +189,35 @@ class LecWindow(QMainWindow, Ui_LecMainWindow):
         self.setupUi(self)
         self.setWindowIcon(QtGui.QIcon('icon.png'))
         self.setWindowTitle("Методический материал")
+        self.ch = 0
+        self.ch_2 = 0
+        self.stackedWidget.setCurrentIndex(self.ch)
+        self.stackedWidget_2.setCurrentIndex(self.ch_2)
+
+        self.pushButton.clicked.connect(self.back)
+        self.pushButton_2.clicked.connect(self.next)
+        self.pushButton_3.clicked.connect(self.back_2)
+        self.pushButton_4.clicked.connect(self.next_2)
+
+    def back(self):
+        self.ch -= 1
+        self.ch = self.ch % 4
+        self.stackedWidget.setCurrentIndex(self.ch)
+
+    def next(self):
+        self.ch += 1
+        self.ch = self.ch % 4
+        self.stackedWidget.setCurrentIndex(self.ch)
+
+    def back_2(self):
+        self.ch_2 -= 1
+        self.ch_2 = self.ch_2 % 11
+        self.stackedWidget_2.setCurrentIndex(self.ch_2)
+
+    def next_2(self):
+        self.ch_2 += 1
+        self.ch_2 = self.ch_2 % 11
+        self.stackedWidget_2.setCurrentIndex(self.ch_2)
 
 
 class TestWindow(QMainWindow, Ui_TestMainWindow):

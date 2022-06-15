@@ -117,8 +117,20 @@ class Ui_RegMainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("color: rgb(156, 20, 222, 255);\n"
-"background-color: white;")
+        self.pushButton.setStyleSheet(" QPushButton {\n"
+"     background-color: white;\n"
+"     color: rgb(156, 20, 222, 255);\n"
+"     border-style: outset;\n"
+"     border-width: 2px;\n"
+"     border-radius: 10px;\n"
+"     border-color: beige;\n"
+"     min-width: 10em;\n"
+"     padding: 6px;\n"
+" }\n"
+" QPushButton:pressed {\n"
+"     background-color: rgb(165, 165, 247);\n"
+"     border-style: inset;\n"
+" }")
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout_3.addWidget(self.pushButton)
         self.verticalLayout_2.addLayout(self.horizontalLayout_3)

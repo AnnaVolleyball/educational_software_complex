@@ -35,14 +35,26 @@ class Ui_LabMainWindow(object):
         self.widget.setObjectName("widget")
         self.verticalLayout_4.addWidget(self.widget)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setMinimumSize(QtCore.QSize(0, 51))
+        self.pushButton.setMinimumSize(QtCore.QSize(176, 51))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("color: rgb(156, 20, 222, 255);\n"
-"background-color: white;")
+        self.pushButton.setStyleSheet(" QPushButton {\n"
+"     background-color: white;\n"
+"     color: rgb(156, 20, 222, 255);\n"
+"     border-style: outset;\n"
+"     border-width: 2px;\n"
+"     border-radius: 10px;\n"
+"     border-color: beige;\n"
+"     min-width: 10em;\n"
+"     padding: 6px;\n"
+" }\n"
+" QPushButton:pressed {\n"
+"     background-color: rgb(165, 165, 247);\n"
+"     border-style: inset;\n"
+" }")
         self.pushButton.setObjectName("pushButton")
         self.verticalLayout_4.addWidget(self.pushButton)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -91,14 +103,26 @@ class Ui_LabMainWindow(object):
         self.horizontalLayout.addWidget(self.radioButton_4)
         self.verticalLayout_4.addLayout(self.horizontalLayout)
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(0, 51))
+        self.pushButton_2.setMinimumSize(QtCore.QSize(176, 51))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("color: rgb(156, 20, 222, 255);\n"
-"background-color: white;")
+        self.pushButton_2.setStyleSheet(" QPushButton {\n"
+"     background-color: white;\n"
+"     color: rgb(156, 20, 222, 255);\n"
+"     border-style: outset;\n"
+"     border-width: 2px;\n"
+"     border-radius: 10px;\n"
+"     border-color: beige;\n"
+"     min-width: 10em;\n"
+"     padding: 6px;\n"
+" }\n"
+" QPushButton:pressed {\n"
+"     background-color: rgb(165, 165, 247);\n"
+"     border-style: inset;\n"
+" }")
         self.pushButton_2.setObjectName("pushButton_2")
         self.verticalLayout_4.addWidget(self.pushButton_2)
         self.gridLayout_2.addLayout(self.verticalLayout_4, 0, 2, 1, 1)

@@ -15,18 +15,63 @@ class Ui_LecMainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1800, 961)
+        MainWindow.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));")
         self.centralwidget.setObjectName("centralwidget")
-        self.gridLayout_4 = QtWidgets.QGridLayout(self.centralwidget)
-        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.verticalLayout_10 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_10.setObjectName("verticalLayout_10")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         font = QtGui.QFont()
+        font.setPointSize(9)
         font.setBold(True)
         font.setWeight(75)
         self.tabWidget.setFont(font)
-        self.tabWidget.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));")
+        self.tabWidget.setStyleSheet("QTabWidget::pane { /* Рамка виджета со вкладками */\n"
+"     border-top: 2px solid rgb(255, 255, 255);\n"
+"     text-color: rgb(255, 255, 255);\n"
+" }\n"
+"QTabWidget::tab-bar {\n"
+"     left: 5px; /* сдвигаем вправо на 5px */\n"
+" }\n"
+"\n"
+" /* Применяем стиль ко вкладке используя субэлемент управления tab. Обратите внимание на то, что\n"
+"     оно читается как QTabBar, а _не_ QTabWidget */\n"
+" QTabBar::tab {\n"
+"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"     \n"
+"     color: rgb(255, 255, 255);\n"
+"     background-color: rgb(71, 16, 235);\n"
+"     border: 2px solid  rgb(255, 255, 255);\n"
+"     border-bottom-color:  rgb(255, 255, 255); /* такой же цвет как у панели */\n"
+"     border-top-left-radius: 4px;\n"
+"     border-top-right-radius: 4px;\n"
+"     min-width: 8ex;\n"
+"     padding: 2px;\n"
+" }\n"
+"\n"
+" QTabBar::tab:selected, QTabBar::tab:hover {\n"
+"     background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+" }\n"
+"\n"
+" QTabBar::tab:selected {\n"
+"     border-color: rgb(255, 255, 255);\n"
+"     background-color: rgb(160, 47, 252);\n"
+"     border-bottom-color: rgb(255, 255, 255); /* такой же цвет как у панели */\n"
+" }\n"
+"\n"
+" QTabBar::tab:!selected {\n"
+"     margin-top: 2px; /* делаем невыбранные вкладки меньше */\n"
+" }\n"
+"\n"
+"")
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
+        self.tab.setStyleSheet("")
         self.tab.setObjectName("tab")
         self.gridLayout_3 = QtWidgets.QGridLayout(self.tab)
         self.gridLayout_3.setObjectName("gridLayout_3")
@@ -47,7 +92,7 @@ class Ui_LecMainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.textBrowser = QtWidgets.QTextBrowser(self.tab)
         self.textBrowser.setStyleSheet("background-color: rgb(153, 135, 255);\n"
-"font: 75 10pt \"Segoe Script\";")
+"font: 75 20pt \"MS Shell Dlg 2\";")
         self.textBrowser.setObjectName("textBrowser")
         self.horizontalLayout_2.addWidget(self.textBrowser)
         self.verticalLayout_5 = QtWidgets.QVBoxLayout()
@@ -118,6 +163,17 @@ class Ui_LecMainWindow(object):
         self.tab_3.setObjectName("tab_3")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.tab_3)
         self.gridLayout_5.setObjectName("gridLayout_5")
+        self.label_20 = QtWidgets.QLabel(self.tab_3)
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_20.setFont(font)
+        self.label_20.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_20.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_20.setObjectName("label_20")
+        self.gridLayout_5.addWidget(self.label_20, 3, 0, 1, 1)
         self.label_19 = QtWidgets.QLabel(self.tab_3)
         font = QtGui.QFont()
         font.setFamily("News706 BT")
@@ -131,77 +187,6 @@ class Ui_LecMainWindow(object):
         self.label_19.setAlignment(QtCore.Qt.AlignCenter)
         self.label_19.setObjectName("label_19")
         self.gridLayout_5.addWidget(self.label_19, 0, 0, 1, 1)
-        self.gridLayout_2 = QtWidgets.QGridLayout()
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        self.textBrowser_3 = QtWidgets.QTextBrowser(self.tab_3)
-        font = QtGui.QFont()
-        font.setFamily("Segoe Script")
-        font.setPointSize(10)
-        font.setBold(False)
-        font.setItalic(False)
-        font.setWeight(9)
-        self.textBrowser_3.setFont(font)
-        self.textBrowser_3.setStyleSheet("background-color: rgb(153, 135, 255);\n"
-"font: 75 10pt \"Segoe Script\";")
-        self.textBrowser_3.setObjectName("textBrowser_3")
-        self.gridLayout_2.addWidget(self.textBrowser_3, 0, 0, 1, 1)
-        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
-        self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.label_7 = QtWidgets.QLabel(self.tab_3)
-        self.label_7.setMaximumSize(QtCore.QSize(531, 231))
-        self.label_7.setText("")
-        self.label_7.setPixmap(QtGui.QPixmap("objch_opt_shema.png"))
-        self.label_7.setScaledContents(True)
-        self.label_7.setObjectName("label_7")
-        self.verticalLayout_2.addWidget(self.label_7)
-        self.label_8 = QtWidgets.QLabel(self.tab_3)
-        self.label_8.setMaximumSize(QtCore.QSize(700, 20))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_8.setFont(font)
-        self.label_8.setStyleSheet("color: rgb(255, 255, 255);\n"
-"background-color: transparent;")
-        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_8.setObjectName("label_8")
-        self.verticalLayout_2.addWidget(self.label_8)
-        self.gridLayout_2.addLayout(self.verticalLayout_2, 0, 1, 1, 1)
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setSpacing(15)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.label_9 = QtWidgets.QLabel(self.tab_3)
-        self.label_9.setMaximumSize(QtCore.QSize(371, 161))
-        self.label_9.setText("")
-        self.label_9.setPixmap(QtGui.QPixmap("blanki.png"))
-        self.label_9.setScaledContents(True)
-        self.label_9.setObjectName("label_9")
-        self.verticalLayout.addWidget(self.label_9)
-        self.label_10 = QtWidgets.QLabel(self.tab_3)
-        self.label_10.setMaximumSize(QtCore.QSize(371, 20))
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_10.setFont(font)
-        self.label_10.setStyleSheet("color: rgb(255, 255, 255);\n"
-"background-color: transparent;")
-        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_10.setObjectName("label_10")
-        self.verticalLayout.addWidget(self.label_10)
-        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem1)
-        self.gridLayout_2.addLayout(self.verticalLayout, 0, 2, 1, 1)
-        self.gridLayout_5.addLayout(self.gridLayout_2, 1, 0, 1, 1)
-        self.label_20 = QtWidgets.QLabel(self.tab_3)
-        font = QtGui.QFont()
-        font.setPointSize(20)
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_20.setFont(font)
-        self.label_20.setStyleSheet("color: rgb(255, 255, 255);\n"
-"background-color: transparent;")
-        self.label_20.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_20.setObjectName("label_20")
-        self.gridLayout_5.addWidget(self.label_20, 2, 0, 1, 1)
         self.gridLayout = QtWidgets.QGridLayout()
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout()
@@ -227,37 +212,93 @@ class Ui_LecMainWindow(object):
         self.verticalLayout_4 = QtWidgets.QVBoxLayout()
         self.verticalLayout_4.setSpacing(15)
         self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.label_13 = QtWidgets.QLabel(self.tab_3)
-        self.label_13.setMaximumSize(QtCore.QSize(401, 121))
-        self.label_13.setText("")
-        self.label_13.setPixmap(QtGui.QPixmap("glasa.png"))
-        self.label_13.setScaledContents(True)
-        self.label_13.setObjectName("label_13")
-        self.verticalLayout_4.addWidget(self.label_13)
-        self.label_14 = QtWidgets.QLabel(self.tab_3)
-        font = QtGui.QFont()
-        font.setBold(True)
-        font.setWeight(75)
-        self.label_14.setFont(font)
-        self.label_14.setStyleSheet("color: rgb(255, 255, 255);\n"
-"background-color: transparent;")
-        self.label_14.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_14.setObjectName("label_14")
-        self.verticalLayout_4.addWidget(self.label_14)
-        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout_4.addItem(spacerItem2)
         self.gridLayout.addLayout(self.verticalLayout_4, 0, 2, 1, 1)
         self.textBrowser_4 = QtWidgets.QTextBrowser(self.tab_3)
         self.textBrowser_4.setStyleSheet("background-color: rgb(153, 135, 255);\n"
-"font: 75 10pt \"Segoe Script\";")
+"font: 75 20pt \"MS Shell Dlg 2\";")
         self.textBrowser_4.setObjectName("textBrowser_4")
         self.gridLayout.addWidget(self.textBrowser_4, 0, 0, 1, 1)
-        self.gridLayout_5.addLayout(self.gridLayout, 3, 0, 1, 1)
+        self.gridLayout_5.addLayout(self.gridLayout, 4, 0, 1, 1)
+        self.gridLayout_2 = QtWidgets.QGridLayout()
+        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setSpacing(15)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label_9 = QtWidgets.QLabel(self.tab_3)
+        self.label_9.setMaximumSize(QtCore.QSize(371, 161))
+        self.label_9.setText("")
+        self.label_9.setPixmap(QtGui.QPixmap("blanki.png"))
+        self.label_9.setScaledContents(True)
+        self.label_9.setObjectName("label_9")
+        self.verticalLayout.addWidget(self.label_9)
+        self.label_10 = QtWidgets.QLabel(self.tab_3)
+        self.label_10.setMaximumSize(QtCore.QSize(371, 20))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_10.setFont(font)
+        self.label_10.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_10.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_10.setObjectName("label_10")
+        self.verticalLayout.addWidget(self.label_10)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem1)
+        self.gridLayout_2.addLayout(self.verticalLayout, 1, 2, 1, 1)
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.label_7 = QtWidgets.QLabel(self.tab_3)
+        self.label_7.setMaximumSize(QtCore.QSize(531, 231))
+        self.label_7.setText("")
+        self.label_7.setPixmap(QtGui.QPixmap("objch_opt_shema.png"))
+        self.label_7.setScaledContents(True)
+        self.label_7.setObjectName("label_7")
+        self.verticalLayout_2.addWidget(self.label_7)
+        self.label_8 = QtWidgets.QLabel(self.tab_3)
+        self.label_8.setMaximumSize(QtCore.QSize(700, 20))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_8.setFont(font)
+        self.label_8.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_8.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_8.setObjectName("label_8")
+        self.verticalLayout_2.addWidget(self.label_8)
+        self.gridLayout_2.addLayout(self.verticalLayout_2, 1, 1, 1, 1)
+        self.textBrowser_3 = QtWidgets.QTextBrowser(self.tab_3)
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(20)
+        font.setBold(False)
+        font.setItalic(False)
+        font.setWeight(9)
+        self.textBrowser_3.setFont(font)
+        self.textBrowser_3.setStyleSheet("background-color: rgb(153, 135, 255);\n"
+"font: 75 20pt \"MS Shell Dlg 2\";")
+        self.textBrowser_3.setObjectName("textBrowser_3")
+        self.gridLayout_2.addWidget(self.textBrowser_3, 1, 0, 1, 1)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_2.addItem(spacerItem2, 0, 2, 1, 1)
+        self.gridLayout_5.addLayout(self.gridLayout_2, 1, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout_5.addItem(spacerItem3, 2, 0, 1, 1)
         self.tabWidget.addTab(self.tab_3, "")
         self.tab_4 = QtWidgets.QWidget()
         self.tab_4.setObjectName("tab_4")
-        self.gridLayout_6 = QtWidgets.QGridLayout(self.tab_4)
-        self.gridLayout_6.setObjectName("gridLayout_6")
+        self.gridLayout_4 = QtWidgets.QGridLayout(self.tab_4)
+        self.gridLayout_4.setObjectName("gridLayout_4")
+        self.label_21 = QtWidgets.QLabel(self.tab_4)
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_21.setFont(font)
+        self.label_21.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_21.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_21.setObjectName("label_21")
+        self.gridLayout_4.addWidget(self.label_21, 0, 0, 1, 1)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.textBrowser_5 = QtWidgets.QTextBrowser(self.tab_4)
@@ -285,7 +326,7 @@ class Ui_LecMainWindow(object):
         self.label_16.setObjectName("label_16")
         self.verticalLayout_7.addWidget(self.label_16)
         self.horizontalLayout.addLayout(self.verticalLayout_7)
-        self.gridLayout_6.addLayout(self.horizontalLayout, 1, 0, 1, 1)
+        self.gridLayout_4.addLayout(self.horizontalLayout, 1, 0, 1, 1)
         self.label_22 = QtWidgets.QLabel(self.tab_4)
         font = QtGui.QFont()
         font.setFamily("Niagara Engraved")
@@ -298,7 +339,7 @@ class Ui_LecMainWindow(object):
 "background-color: transparent;")
         self.label_22.setAlignment(QtCore.Qt.AlignCenter)
         self.label_22.setObjectName("label_22")
-        self.gridLayout_6.addWidget(self.label_22, 2, 0, 1, 1)
+        self.gridLayout_4.addWidget(self.label_22, 2, 0, 1, 1)
         self.horizontalLayout_4 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_4.setObjectName("horizontalLayout_4")
         self.textBrowser_6 = QtWidgets.QTextBrowser(self.tab_4)
@@ -326,40 +367,427 @@ class Ui_LecMainWindow(object):
         self.label_23.setObjectName("label_23")
         self.verticalLayout_8.addWidget(self.label_23)
         self.horizontalLayout_4.addLayout(self.verticalLayout_8)
-        self.gridLayout_6.addLayout(self.horizontalLayout_4, 3, 0, 1, 1)
-        self.label_21 = QtWidgets.QLabel(self.tab_4)
+        self.verticalLayout_9 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_9.setObjectName("verticalLayout_9")
+        self.label_25 = QtWidgets.QLabel(self.tab_4)
+        self.label_25.setMaximumSize(QtCore.QSize(401, 121))
+        self.label_25.setText("")
+        self.label_25.setPixmap(QtGui.QPixmap("glasa.png"))
+        self.label_25.setScaledContents(True)
+        self.label_25.setObjectName("label_25")
+        self.verticalLayout_9.addWidget(self.label_25)
+        self.label_26 = QtWidgets.QLabel(self.tab_4)
         font = QtGui.QFont()
-        font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
-        self.label_21.setFont(font)
-        self.label_21.setStyleSheet("color: rgb(255, 255, 255);\n"
+        self.label_26.setFont(font)
+        self.label_26.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: transparent;")
-        self.label_21.setAlignment(QtCore.Qt.AlignCenter)
-        self.label_21.setObjectName("label_21")
-        self.gridLayout_6.addWidget(self.label_21, 0, 0, 1, 1)
+        self.label_26.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_26.setObjectName("label_26")
+        self.verticalLayout_9.addWidget(self.label_26)
+        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_9.addItem(spacerItem4)
+        self.horizontalLayout_4.addLayout(self.verticalLayout_9)
+        self.gridLayout_4.addLayout(self.horizontalLayout_4, 3, 0, 1, 1)
         self.tabWidget.addTab(self.tab_4, "")
         self.tab_2 = QtWidgets.QWidget()
         self.tab_2.setObjectName("tab_2")
+        self.gridLayout_6 = QtWidgets.QGridLayout(self.tab_2)
+        self.gridLayout_6.setObjectName("gridLayout_6")
         self.textBrowser_8 = QtWidgets.QTextBrowser(self.tab_2)
-        self.textBrowser_8.setGeometry(QtCore.QRect(20, 20, 811, 821))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(12)
-        font.setBold(True)
+        font.setBold(False)
         font.setItalic(False)
-        font.setWeight(75)
+        font.setWeight(9)
         self.textBrowser_8.setFont(font)
-        self.textBrowser_8.setStyleSheet("background-color: rgb(153, 135, 255);")
+        self.textBrowser_8.setStyleSheet("background-color: rgb(153, 135, 255);\n"
+"font: 75 12pt \"MS Shell Dlg 2\";")
         self.textBrowser_8.setObjectName("textBrowser_8")
-        self.label_18 = QtWidgets.QLabel(self.tab_2)
-        self.label_18.setGeometry(QtCore.QRect(890, 20, 461, 201))
-        self.label_18.setText("")
-        self.label_18.setPixmap(QtGui.QPixmap("shem_step_vospr_obj.png"))
-        self.label_18.setScaledContents(True)
-        self.label_18.setObjectName("label_18")
-        self.label_24 = QtWidgets.QLabel(self.tab_2)
-        self.label_24.setGeometry(QtCore.QRect(890, 240, 591, 71))
+        self.gridLayout_6.addWidget(self.textBrowser_8, 0, 0, 2, 1)
+        self.verticalLayout_12 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_12.setSpacing(0)
+        self.verticalLayout_12.setObjectName("verticalLayout_12")
+        self.stackedWidget_2 = QtWidgets.QStackedWidget(self.tab_2)
+        self.stackedWidget_2.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));")
+        self.stackedWidget_2.setObjectName("stackedWidget_2")
+        self.page_3 = QtWidgets.QWidget()
+        self.page_3.setObjectName("page_3")
+        self.label_35 = QtWidgets.QLabel(self.page_3)
+        self.label_35.setGeometry(QtCore.QRect(230, 50, 431, 281))
+        self.label_35.setText("")
+        self.label_35.setPixmap(QtGui.QPixmap("metod_materialy/lokal_syzh.png"))
+        self.label_35.setScaledContents(True)
+        self.label_35.setObjectName("label_35")
+        self.label_27 = QtWidgets.QLabel(self.page_3)
+        self.label_27.setGeometry(QtCore.QRect(160, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_27.setFont(font)
+        self.label_27.setMouseTracking(False)
+        self.label_27.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_27.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_27.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_27.setObjectName("label_27")
+        self.stackedWidget_2.addWidget(self.page_3)
+        self.page_7 = QtWidgets.QWidget()
+        self.page_7.setObjectName("page_7")
+        self.label_36 = QtWidgets.QLabel(self.page_7)
+        self.label_36.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_36.setFont(font)
+        self.label_36.setMouseTracking(False)
+        self.label_36.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_36.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_36.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_36.setObjectName("label_36")
+        self.label_37 = QtWidgets.QLabel(self.page_7)
+        self.label_37.setGeometry(QtCore.QRect(140, 50, 621, 281))
+        self.label_37.setText("")
+        self.label_37.setPixmap(QtGui.QPixmap("metod_materialy/poln_gemi.png"))
+        self.label_37.setScaledContents(True)
+        self.label_37.setObjectName("label_37")
+        self.stackedWidget_2.addWidget(self.page_7)
+        self.page_8 = QtWidgets.QWidget()
+        self.page_8.setObjectName("page_8")
+        self.label_38 = QtWidgets.QLabel(self.page_8)
+        self.label_38.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_38.setFont(font)
+        self.label_38.setMouseTracking(False)
+        self.label_38.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_38.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_38.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_38.setObjectName("label_38")
+        self.label_39 = QtWidgets.QLabel(self.page_8)
+        self.label_39.setGeometry(QtCore.QRect(110, 60, 671, 271))
+        self.label_39.setText("")
+        self.label_39.setPixmap(QtGui.QPixmap("metod_materialy/kvadr_gemi.png"))
+        self.label_39.setScaledContents(True)
+        self.label_39.setObjectName("label_39")
+        self.stackedWidget_2.addWidget(self.page_8)
+        self.page_9 = QtWidgets.QWidget()
+        self.page_9.setObjectName("page_9")
+        self.label_40 = QtWidgets.QLabel(self.page_9)
+        self.label_40.setGeometry(QtCore.QRect(170, 20, 571, 51))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_40.setFont(font)
+        self.label_40.setMouseTracking(False)
+        self.label_40.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_40.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_40.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_40.setObjectName("label_40")
+        self.label_41 = QtWidgets.QLabel(self.page_9)
+        self.label_41.setGeometry(QtCore.QRect(100, 90, 681, 241))
+        self.label_41.setText("")
+        self.label_41.setPixmap(QtGui.QPixmap("metod_materialy/sohr_zentr_zren_gomo_gemi.png"))
+        self.label_41.setScaledContents(True)
+        self.label_41.setObjectName("label_41")
+        self.stackedWidget_2.addWidget(self.page_9)
+        self.page_10 = QtWidgets.QWidget()
+        self.page_10.setObjectName("page_10")
+        self.label_42 = QtWidgets.QLabel(self.page_10)
+        self.label_42.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_42.setFont(font)
+        self.label_42.setMouseTracking(False)
+        self.label_42.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_42.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_42.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_42.setObjectName("label_42")
+        self.label_43 = QtWidgets.QLabel(self.page_10)
+        self.label_43.setGeometry(QtCore.QRect(130, 60, 661, 261))
+        self.label_43.setText("")
+        self.label_43.setPixmap(QtGui.QPixmap("metod_materialy/bitempor_gem.png"))
+        self.label_43.setScaledContents(True)
+        self.label_43.setObjectName("label_43")
+        self.stackedWidget_2.addWidget(self.page_10)
+        self.page_11 = QtWidgets.QWidget()
+        self.page_11.setObjectName("page_11")
+        self.label_44 = QtWidgets.QLabel(self.page_11)
+        self.label_44.setGeometry(QtCore.QRect(160, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_44.setFont(font)
+        self.label_44.setMouseTracking(False)
+        self.label_44.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_44.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_44.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_44.setObjectName("label_44")
+        self.label_45 = QtWidgets.QLabel(self.page_11)
+        self.label_45.setGeometry(QtCore.QRect(120, 60, 671, 271))
+        self.label_45.setText("")
+        self.label_45.setPixmap(QtGui.QPixmap("metod_materialy/binazal_gemi.png"))
+        self.label_45.setScaledContents(True)
+        self.label_45.setObjectName("label_45")
+        self.stackedWidget_2.addWidget(self.page_11)
+        self.page_12 = QtWidgets.QWidget()
+        self.page_12.setObjectName("page_12")
+        self.label_46 = QtWidgets.QLabel(self.page_12)
+        self.label_46.setGeometry(QtCore.QRect(160, 10, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_46.setFont(font)
+        self.label_46.setMouseTracking(False)
+        self.label_46.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_46.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_46.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_46.setObjectName("label_46")
+        self.label_47 = QtWidgets.QLabel(self.page_12)
+        self.label_47.setGeometry(QtCore.QRect(210, 40, 461, 291))
+        self.label_47.setText("")
+        self.label_47.setPixmap(QtGui.QPixmap("metod_materialy/zent_skot.png"))
+        self.label_47.setScaledContents(True)
+        self.label_47.setObjectName("label_47")
+        self.stackedWidget_2.addWidget(self.page_12)
+        self.page_13 = QtWidgets.QWidget()
+        self.page_13.setObjectName("page_13")
+        self.label_48 = QtWidgets.QLabel(self.page_13)
+        self.label_48.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_48.setFont(font)
+        self.label_48.setMouseTracking(False)
+        self.label_48.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_48.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_48.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_48.setObjectName("label_48")
+        self.label_49 = QtWidgets.QLabel(self.page_13)
+        self.label_49.setGeometry(QtCore.QRect(260, 50, 401, 291))
+        self.label_49.setText("")
+        self.label_49.setPixmap(QtGui.QPixmap("metod_materialy/perezentr_skot.png"))
+        self.label_49.setScaledContents(True)
+        self.label_49.setObjectName("label_49")
+        self.stackedWidget_2.addWidget(self.page_13)
+        self.page_14 = QtWidgets.QWidget()
+        self.page_14.setObjectName("page_14")
+        self.label_50 = QtWidgets.QLabel(self.page_14)
+        self.label_50.setGeometry(QtCore.QRect(170, 10, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_50.setFont(font)
+        self.label_50.setMouseTracking(False)
+        self.label_50.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_50.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_50.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_50.setObjectName("label_50")
+        self.label_51 = QtWidgets.QLabel(self.page_14)
+        self.label_51.setGeometry(QtCore.QRect(250, 40, 401, 291))
+        self.label_51.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_51.setText("")
+        self.label_51.setPixmap(QtGui.QPixmap("metod_materialy/parazentr_skotomy.png"))
+        self.label_51.setScaledContents(True)
+        self.label_51.setObjectName("label_51")
+        self.stackedWidget_2.addWidget(self.page_14)
+        self.page_15 = QtWidgets.QWidget()
+        self.page_15.setObjectName("page_15")
+        self.label_52 = QtWidgets.QLabel(self.page_15)
+        self.label_52.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_52.setFont(font)
+        self.label_52.setMouseTracking(False)
+        self.label_52.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_52.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_52.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_52.setObjectName("label_52")
+        self.label_53 = QtWidgets.QLabel(self.page_15)
+        self.label_53.setGeometry(QtCore.QRect(260, 50, 381, 281))
+        self.label_53.setText("")
+        self.label_53.setPixmap(QtGui.QPixmap("metod_materialy/sektor_skot.png"))
+        self.label_53.setScaledContents(True)
+        self.label_53.setObjectName("label_53")
+        self.stackedWidget_2.addWidget(self.page_15)
+        self.page_4 = QtWidgets.QWidget()
+        self.page_4.setObjectName("page_4")
+        self.label_28 = QtWidgets.QLabel(self.page_4)
+        self.label_28.setGeometry(QtCore.QRect(150, 60, 621, 261))
+        self.label_28.setText("")
+        self.label_28.setPixmap(QtGui.QPixmap("metod_materialy/conzentr_syzh.png"))
+        self.label_28.setScaledContents(True)
+        self.label_28.setObjectName("label_28")
+        self.label_14 = QtWidgets.QLabel(self.page_4)
+        self.label_14.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_14.setFont(font)
+        self.label_14.setMouseTracking(False)
+        self.label_14.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_14.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_14.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_14.setObjectName("label_14")
+        self.stackedWidget_2.addWidget(self.page_4)
+        self.verticalLayout_12.addWidget(self.stackedWidget_2)
+        self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem5)
+        self.pushButton_3 = QtWidgets.QPushButton(self.tab_2)
+        self.pushButton_3.setMinimumSize(QtCore.QSize(176, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_3.setFont(font)
+        self.pushButton_3.setStyleSheet(" QPushButton {\n"
+"     background-color: white;\n"
+"     color: rgb(156, 20, 222, 255);\n"
+"     border-style: outset;\n"
+"     border-width: 2px;\n"
+"     border-radius: 10px;\n"
+"     border-color: beige;\n"
+"     min-width: 10em;\n"
+"     padding: 6px;\n"
+" }\n"
+" QPushButton:pressed {\n"
+"     background-color: rgb(165, 165, 247);\n"
+"     border-style: inset;\n"
+" }")
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.horizontalLayout_6.addWidget(self.pushButton_3)
+        spacerItem6 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem6)
+        self.pushButton_4 = QtWidgets.QPushButton(self.tab_2)
+        self.pushButton_4.setMinimumSize(QtCore.QSize(176, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_4.setFont(font)
+        self.pushButton_4.setStyleSheet(" QPushButton {\n"
+"     background-color: white;\n"
+"     color: rgb(156, 20, 222, 255);\n"
+"     border-style: outset;\n"
+"     border-width: 2px;\n"
+"     border-radius: 10px;\n"
+"     border-color: beige;\n"
+"     min-width: 10em;\n"
+"     padding: 6px;\n"
+" }\n"
+" QPushButton:pressed {\n"
+"     background-color: rgb(165, 165, 247);\n"
+"     border-style: inset;\n"
+" }")
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.horizontalLayout_6.addWidget(self.pushButton_4)
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem7)
+        self.verticalLayout_12.addLayout(self.horizontalLayout_6)
+        self.gridLayout_6.addLayout(self.verticalLayout_12, 1, 1, 1, 1)
+        self.verticalLayout_11 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_11.setObjectName("verticalLayout_11")
+        self.stackedWidget = QtWidgets.QStackedWidget(self.tab_2)
+        self.stackedWidget.setStyleSheet("background-color: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0 rgba(255, 235, 235, 206), stop:0.35 rgba(255, 188, 188, 80), stop:0.4 rgba(255, 162, 162, 80), stop:0.425 rgba(255, 132, 132, 156), stop:0.44 rgba(252, 128, 128, 80), stop:1 rgba(255, 255, 255, 0));")
+        self.stackedWidget.setObjectName("stackedWidget")
+        self.page = QtWidgets.QWidget()
+        self.page.setObjectName("page")
+        self.label_29 = QtWidgets.QLabel(self.page)
+        self.label_29.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_29.setFont(font)
+        self.label_29.setMouseTracking(False)
+        self.label_29.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_29.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_29.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_29.setObjectName("label_29")
+        self.label_30 = QtWidgets.QLabel(self.page)
+        self.label_30.setGeometry(QtCore.QRect(230, 50, 441, 301))
+        self.label_30.setText("")
+        self.label_30.setPixmap(QtGui.QPixmap("metod_materialy/monokyl_izm.png"))
+        self.label_30.setScaledContents(True)
+        self.label_30.setObjectName("label_30")
+        self.stackedWidget.addWidget(self.page)
+        self.page_5 = QtWidgets.QWidget()
+        self.page_5.setObjectName("page_5")
+        self.label_31 = QtWidgets.QLabel(self.page_5)
+        self.label_31.setGeometry(QtCore.QRect(170, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_31.setFont(font)
+        self.label_31.setMouseTracking(False)
+        self.label_31.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_31.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_31.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_31.setObjectName("label_31")
+        self.label_32 = QtWidgets.QLabel(self.page_5)
+        self.label_32.setGeometry(QtCore.QRect(230, 50, 461, 291))
+        self.label_32.setText("")
+        self.label_32.setPixmap(QtGui.QPixmap("metod_materialy/binokyl_izm.jpg"))
+        self.label_32.setScaledContents(True)
+        self.label_32.setObjectName("label_32")
+        self.stackedWidget.addWidget(self.page_5)
+        self.page_6 = QtWidgets.QWidget()
+        self.page_6.setObjectName("page_6")
+        self.label_33 = QtWidgets.QLabel(self.page_6)
+        self.label_33.setGeometry(QtCore.QRect(170, 10, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_33.setFont(font)
+        self.label_33.setMouseTracking(False)
+        self.label_33.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_33.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_33.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_33.setObjectName("label_33")
+        self.label_34 = QtWidgets.QLabel(self.page_6)
+        self.label_34.setGeometry(QtCore.QRect(120, 50, 641, 281))
+        self.label_34.setText("")
+        self.label_34.setPixmap(QtGui.QPixmap("metod_materialy/norma_pole_zr_mono.png"))
+        self.label_34.setScaledContents(True)
+        self.label_34.setObjectName("label_34")
+        self.stackedWidget.addWidget(self.page_6)
+        self.page_2 = QtWidgets.QWidget()
+        self.page_2.setObjectName("page_2")
+        self.label_24 = QtWidgets.QLabel(self.page_2)
+        self.label_24.setGeometry(QtCore.QRect(150, 290, 591, 71))
         font = QtGui.QFont()
         font.setBold(True)
         font.setWeight(75)
@@ -367,16 +795,95 @@ class Ui_LecMainWindow(object):
         self.label_24.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: transparent;")
         self.label_24.setObjectName("label_24")
+        self.label_18 = QtWidgets.QLabel(self.page_2)
+        self.label_18.setGeometry(QtCore.QRect(110, 70, 671, 211))
+        self.label_18.setText("")
+        self.label_18.setPixmap(QtGui.QPixmap("metod_materialy/shem_step_vospr_obj.png"))
+        self.label_18.setScaledContents(True)
+        self.label_18.setObjectName("label_18")
+        self.label_13 = QtWidgets.QLabel(self.page_2)
+        self.label_13.setGeometry(QtCore.QRect(150, 20, 571, 20))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_13.setFont(font)
+        self.label_13.setMouseTracking(False)
+        self.label_13.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.label_13.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: transparent;")
+        self.label_13.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_13.setObjectName("label_13")
+        self.stackedWidget.addWidget(self.page_2)
+        self.verticalLayout_11.addWidget(self.stackedWidget)
+        self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem8)
+        self.pushButton = QtWidgets.QPushButton(self.tab_2)
+        self.pushButton.setMinimumSize(QtCore.QSize(176, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet(" QPushButton {\n"
+"     background-color: white;\n"
+"     color: rgb(156, 20, 222, 255);\n"
+"     border-style: outset;\n"
+"     border-width: 2px;\n"
+"     border-radius: 10px;\n"
+"     border-color: beige;\n"
+"     min-width: 10em;\n"
+"     padding: 6px;\n"
+" }\n"
+" QPushButton:pressed {\n"
+"     background-color: rgb(165, 165, 247);\n"
+"     border-style: inset;\n"
+" }")
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout_5.addWidget(self.pushButton)
+        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem9)
+        self.pushButton_2 = QtWidgets.QPushButton(self.tab_2)
+        self.pushButton_2.setMinimumSize(QtCore.QSize(176, 35))
+        font = QtGui.QFont()
+        font.setFamily("MS Shell Dlg 2")
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setItalic(False)
+        font.setWeight(75)
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setStyleSheet(" QPushButton {\n"
+"     background-color: white;\n"
+"     color: rgb(156, 20, 222, 255);\n"
+"     border-style: outset;\n"
+"     border-width: 2px;\n"
+"     border-radius: 10px;\n"
+"     border-color: beige;\n"
+"     min-width: 10em;\n"
+"     padding: 6px;\n"
+" }\n"
+" QPushButton:pressed {\n"
+"     background-color: rgb(165, 165, 247);\n"
+"     border-style: inset;\n"
+" }")
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.horizontalLayout_5.addWidget(self.pushButton_2)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_5.addItem(spacerItem10)
+        self.verticalLayout_11.addLayout(self.horizontalLayout_5)
+        self.gridLayout_6.addLayout(self.verticalLayout_11, 0, 1, 1, 1)
         self.tabWidget.addTab(self.tab_2, "")
         self.tab_6 = QtWidgets.QWidget()
         self.tab_6.setObjectName("tab_6")
         self.textBrowser_7 = QtWidgets.QTextBrowser(self.tab_6)
         self.textBrowser_7.setGeometry(QtCore.QRect(20, 20, 981, 811))
         self.textBrowser_7.setStyleSheet("background-color: rgb(153, 135, 255);\n"
-"font: 75 10pt \"Segoe Script\";")
+"font: 75 12pt \"MS Shell Dlg 2\";")
         self.textBrowser_7.setObjectName("textBrowser_7")
         self.tabWidget.addTab(self.tab_6, "")
-        self.gridLayout_4.addWidget(self.tabWidget, 0, 0, 1, 1)
+        self.verticalLayout_10.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1800, 26))
@@ -388,6 +895,8 @@ class Ui_LecMainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.tabWidget.setCurrentIndex(3)
+        self.stackedWidget_2.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -397,22 +906,22 @@ class Ui_LecMainWindow(object):
         self.textBrowser.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Segoe Script\'; font-size:10pt; font-weight:72; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600;\">Периметрия</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"> - это методика для оценки границ поля зрения. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600;\">Поле зрения</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"> - это совокупность всех точек в пространстве, которое видит человек одним глазом при фиксированном по центру взоре. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Периметр предназначен для определения границ полей зрения по критериям цветовой и световой чувствительности сетчатки как приемника лучистой энергии, а также выпадений поля зрения (скотом), размера и положения слепого пятна. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Периметрия включает в себя исследование световой и цветовой чувствительности правого глаза OD и левого глаза OS зрительного анализатора человека. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Стандарт определяет поле зрения как сумму всех направлений, на которых глаз (или парные глаза) может воспринимать визуальные стимулы в определенный момент времени, и как характеристику восприятия этих стимулов. В соответствии с ним объектами исследования являются: монокулярное, бинокулярное, центральное и периферическое поля зрения зрительного анализатора. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Центральное поле зрения – это поле зрения во всех направлениях в пределах 30° от точки фиксации. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Периферическое поле зрения - это поле зрения во всех направлениях за пределами 30° от точки фиксации.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Средние значения границ полей зрения отдельного глаза для разных спектральных диапазонов излучения приведены в таблице.</span></p></body></html>"))
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:20pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Периметрия</span><span style=\" font-size:12pt; font-weight:400;\"> - это методика для оценки границ поля зрения. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Поле зрения</span><span style=\" font-size:12pt; font-weight:400;\"> - это совокупность всех точек в пространстве, которое видит человек одним глазом при фиксированном по центру взоре. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Периметр предназначен для определения границ полей зрения по критериям цветовой и световой чувствительности сетчатки как приемника лучистой энергии, а также выпадений поля зрения (скотом), размера и положения слепого пятна. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Периметрия включает в себя исследование световой и цветовой чувствительности правого глаза OD и левого глаза OS зрительного анализатора человека. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Стандарт определяет поле зрения как сумму всех направлений, на которых глаз (или парные глаза) может воспринимать визуальные стимулы в определенный момент времени, и как характеристику восприятия этих стимулов. В соответствии с ним объектами исследования являются: монокулярное, бинокулярное, центральное и периферическое поля зрения зрительного анализатора. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Центральное поле зрения</span><span style=\" font-size:12pt; font-weight:400;\"> – это поле зрения во всех направлениях в пределах 30° от точки фиксации. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Периферическое поле зрения</span><span style=\" font-size:12pt; font-weight:400;\"> - это поле зрения во всех направлениях за пределами 30° от точки фиксации.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Средние значения границ полей зрения отдельного глаза для разных спектральных диапазонов излучения приведены в таблице.</span></p></body></html>"))
         self.label_2.setText(_translate("MainWindow", "Средние значения границ поля зрения"))
         self.textBrowser_2.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
@@ -422,85 +931,113 @@ class Ui_LecMainWindow(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Стандарт ISO рекомендует применять для обозначения положений стимула в поле зрения полярную систему координат с началом в центре зрачка глаза. В полярной системе координат положение испытательного стимула определяется полумеридианом θ и смещением в направлении полумеридиана φ, как показано на рисунке. Обе величины выражаются в градусной мере. Направление нулевого полумеридиана задается слева направо с точки зрения исследуемого. Затем определенный таким образом нулевой полумеридиан вращается против часовой стрелки вокруг точки фиксации с точки зрения пациента. Точка фиксации взора пациента должна иметь нулевое смещение от центра полярной системы координат.</span></p>\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Основные технические характеристики проекционного периметра должны соответствовать следующим минимальным медико-техническим требованиям. Изображение испытательного стимула круглой формы (стимул Гольдмана) диаметром 15, 5, 3 или 1 мм перемещается по дуге в пределах от 0 до ±95°. Цвета испытательных стимулов – белый, красный, синий, зеленый. Яркость испытательных стимулов может составлять: 3·10^-5, 12·10^-5, 48·10^-5, 3·10^-2, 12·^-2, 48·^10-2, 1, 4, 6 [кд/м 2 ]. Яркость дуги радиусом 333 мм зависит от задачи исследования: 2·10^-4 [кд/м^2] (ночное зрение); 2·10^-1 [кд/м^2] (сумеречное зрение); 5,0 [кд/м^2] (дневное зрение). Спектральный состав излучения ламп осветительного канала должен быть близок к дневному свету.</span></p></body></html>"))
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Основные технические характеристики проекционного периметра должны соответствовать следующим минимальным медико-техническим требованиям. Изображение испытательного стимула круглой формы (стимул Гольдмана) диаметром 15, 5, 3 или 1 мм перемещается по дуге в пределах от 0 до ±95°. Цвета испытательных стимулов – белый, красный, синий, зеленый. Яркость дуги радиусом 333 мм зависит от задачи исследования: 2·10^-4 [кд/м</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400; vertical-align:super;\">2</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">] (ночное зрение); 2·10^-1 [кд/м</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400; vertical-align:super;\">2</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">] (сумеречное зрение); 5,0 [кд/м</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400; vertical-align:super;\">2</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">] (дневное зрение). Спектральный состав излучения ламп осветительного канала должен быть близок к дневному свету.</span></p></body></html>"))
         self.label_3.setText(_translate("MainWindow", "Полярная система координат (со стороны пациента)"))
         self.label_5.setText(_translate("MainWindow", "Назначение прибора и средние границы"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "Лекция. Часть 1"))
-        self.label_19.setText(_translate("MainWindow", "Оптическая схема периметра и методика работы"))
-        self.textBrowser_3.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
-"p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Segoe Script\'; font-size:10pt; font-weight:72; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Оптическая система прибора включает в себя четыре канала: </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">- осветительный канал; </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">- канал фиксации взора; </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">- канал контроля рабочего расстояния; </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">- наблюдательный канал. </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Принципиальная оптическая схема наблюдательного канала проекционного периметра приводится на рисунке.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Прибор основан на принципе фиксации различными зонами сетчатки неподвижного глаза 4, расположенного в центре полусферы, световой проекции испытательного стимула 2, находящегося на различных участках этой полусферы. Полусфера имитируется дугой 1 периметра. Дуга может вращаться вокруг неподвижной оси 5, на которой располагается точка 3 фиксации взора глаза 4. Результаты исследования регистрируются на специальном бланке-графике. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600;\">Методика работы:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Периметр устанавливается против света, его дуга приводится в горизонтальное положение. Испытуемый садится спиной к свету, устанавливает свой подбородок в специальную подставку, а нижний край глазницы одного глаза - к визирной пластинке. Этим глазом испытуемый фиксирует белый кружок по центру дуги периметра. При этом другой глаз закрывает ладонью. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Помощник медленно передвигает белую марку с наружного правого края к центру дуги периметра. Испытуемый должен сообщить о появлении в поле зрения открытого глаза белой марки. Замечается угол в градусах, под которым испытуемый различает белую марку. На бланке делается соответствующая отметка (по горизонтали справа на определенном меридиане ставится точка). Затем измеряется поле зрения для белой марки с левой стороны дуги периметра. Делается соответствующая отметка в бланке (по горизонтали слева на определенном меридиане ставится точка). После этого дугу периметра поворачивают на 90 градусов и аналогично определяют границы полей зрения для белой марки снизу и сверху дуги периметра. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Последнее измерение проводится при положении дуги периметра под углом в 45 градусов. Как только на бланке появятся 8 точек, необходимо их соединить. Получают границы поля зрения для белого цвета у одного из глаз. По сходной методике выявляют границу поля зрения для белого цвета у другого глаза. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Далее необходимо последовательно заменять белую марку черной и цветными (красной, зеленой, синей). На бланке отмечаются границы полей зрения для черного, красного, зеленого и синего цветов.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600;\">Пример выполнения исследований:</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">https://www.youtube.com/watch?v=rpb0sP2vSVw&amp;ab_channel=Melihovka</span></p></body></html>"))
-        self.label_8.setText(_translate("MainWindow", "Принципиальная оптическая схема наблюдательного канала"))
-        self.label_10.setText(_translate("MainWindow", "Форма бланков"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "  Лекция. Часть 1  "))
         self.label_20.setText(_translate("MainWindow", "Конструкция проекционного периметра и основные технические характеристики прибора"))
+        self.label_19.setText(_translate("MainWindow", "Оптическая схема периметра и методика работы"))
         self.label_12.setText(_translate("MainWindow", "Проекционный периметр"))
-        self.label_14.setText(_translate("MainWindow", " Схема контроля рабочего расстояния"))
         self.textBrowser_4.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'Segoe Script\'; font-size:10pt; font-weight:72; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Конструкция прибора приведена на рисунке. Периметр смонтирован на основании 20. На расширенной части основания закреплена стойка 21 с корпусом 22. В корпусе 22 размещены основные устройства для проекции и перемещения испытательного стимула по дуге 1, изменения его цвета, яркости и размеров. К переднему торцу корпуса 22 прикреплена горизонтальная трубка 23 с вращающейся проекционной головкой 24 и узлом подсветки дуги 25 на торце. К заднему торцу корпуса 22 прикреплена трубка 26 с зеркалом для освещения сменного регистрационного бланка 27. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Осветитель стимула с лампой 6 вставляется сверху в корпус 22 и закрепляется винтом 28. Вблизи осветителя расположены револьверные диски 8 - 10. В диске 8 имеются четыре круглых диафрагмы с диаметрами 6,5; 3,2; 2; 0,65 [мм]. В три отверстия револьверного диска 9 вмонтированы светофильтры: красный, зеленый и синий, четвертое отверстие оставлено свободным для организации стимула в «белом» свете. В два отверстия револьверного диска 10 установлены два нейтральных светофильтра, и имеется по одному свободному отверстию в каждом. На торцах револьверных дисков 8 - 10 предусмотрена соответствующая индексация. Поворачивая эти диски, можно установить на дуге испытательный стимул нужного размера, цвета и яркости. Каждый из дисков снабжен пружинным фиксатором. Изображения круглых диафрагм в диске 8 на дуге 1 периметра являются испытательными стимулами.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Перемещение испытательного стимула по дуге 1 осуществляется поворотом проекционной головки 24 с закрепленными на ней зеркалами. Головка 24 закрыта колпачком и приводится во вращение барабаном 29 посредством гибкого троса 30. Тем самым изображение стимула 2 перемещается по дуге 1. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Дуга 1 периметра установлена в подшипнике. Ее внутренняя часть окрашена серой матовой краской, создающей фон для проектируемого испытательного стимула, но не изменяющей спектральный состав излучения лампы 6. Поворот дуги осуществляется от руки за корпус 22. Угол поворота дуги фиксируется через 30° с помощью фиксатора 31. Угол поворота отсчитывается по шкале 32, выгравированной на кольце держателя. Результаты исследований за прибором регистрируются на бланке 27 накалыванием иглой 33 или нанесением точек цветными карандашами. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Бланк 27 закрепляют держателем со шкалой 32. Поле зрения наносится в таком виде, как его видит оператор, стоящий перед пациентом. </span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600;\">Таким образом, оператор начинает отсчет по графику бланка с правой стороны от 0° и ведет его против часовой стрелки.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Чтобы установить глаз пациента в центре дуги периметра, на расстоянии 0,333 м, в приборе предусмотрены лицевой установ и оптическая система контроля рабочего расстояния. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Лицевой установ предназначен для фиксации головы пациента и ориентирования его глаза относительно центра дуги прибора. Он состоит из подбородника 34 и налобника 35. Вращением рукоятки 36, лицевой установ можно перемещать в поперечном направлении, а вращением рукоятки 37 - в продольном направлении. Установка подбородника по высоте осуществляется вращением гайки 38 с накаткой, а наклон – винтом 39.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">В оптической системе контроля рабочего расстояния имеется два идентичных «рожка» 40, включаемых при нажатой кнопке 41. Каждый из рожков дает равновеликое изображение кольца. Оба изображения совпадают только в центре дуги. Если глаз установлен в центре дуги, оба изображения кольца сольются в одно кольцо, расположенное вокруг зрачка пациента на расстоянии 333 мм от точки фиксации взора (смотреть рисунок).</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600;\">Основные технические характеристики прибора ПРП-60.УЧ.2:</span><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\"> </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Рабочая область спектра, [мкм]         от 0,4 до 0,78 </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Пределы перемещения стимула </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">по дуге, [град]             от -95° до +95° </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Диаметр испытательного стимула, мм         6,5; 3,2; 2; 0,65 </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Цвета испытательного стимула:         белый, красный, зеленый, синий </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Яркость стимула, [кд/м 2 ]         16; 4; 0,48; 0,12;0,03;                             0,00048;</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">                0,00012; 0,00003 </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Яркость дуги, [кд/м 2 ]             - дневное зрение 5</span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">                - сумеречное зрение 0,2         </span></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">                - ночное зрение 0,0002 </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Радиус дуги, [мм]             333 </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Источники света:             лампа РН-8-20, лампа МН 13,5-0,16 </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Габаритные размеры прибора, [мм]         655×678×750 </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'MS Shell Dlg 2\'; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Масса прибора, [кг]             не более 25</span></p></body></html>"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Лекция. Часть 2"))
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:20pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Конструкция прибора приведена на рисунке. Периметр смонтирован на основании 20. На расширенной части основания закреплена стойка 21 с корпусом 22. В корпусе 22 размещены основные устройства для проекции и перемещения испытательного стимула по дуге 1, изменения его цвета, яркости и размеров. К переднему торцу корпуса 22 прикреплена горизонтальная трубка 23 с вращающейся проекционной головкой 24 и узлом подсветки дуги 25 на торце. К заднему торцу корпуса 22 прикреплена трубка 26 с зеркалом для освещения сменного регистрационного бланка 27. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Осветитель стимула с лампой 6 вставляется сверху в корпус 22 и закрепляется винтом 28. Вблизи осветителя расположены револьверные диски 8 - 10. В диске 8 имеются четыре круглых диафрагмы с диаметрами 6,5; 3,2; 2; 0,65 [мм]. В три отверстия револьверного диска 9 вмонтированы светофильтры: красный, зеленый и синий, четвертое отверстие оставлено свободным для организации стимула в «белом» свете. В два отверстия револьверного диска 10 установлены два нейтральных светофильтра, и имеется по одному свободному отверстию в каждом. На торцах револьверных дисков 8 - 10 предусмотрена соответствующая индексация. Поворачивая эти диски, можно установить на дуге испытательный стимул нужного размера, цвета и яркости. Каждый из дисков снабжен пружинным фиксатором. Изображения круглых диафрагм в диске 8 на дуге 1 периметра являются испытательными стимулами.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Перемещение испытательного стимула по дуге 1 осуществляется поворотом проекционной головки 24 с закрепленными на ней зеркалами. Головка 24 закрыта колпачком и приводится во вращение барабаном 29 посредством гибкого троса 30. Тем самым изображение стимула 2 перемещается по дуге 1. </span><span style=\" font-family:\'Segoe Script\'; font-size:10pt;\"><br /></span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Дуга 1 периметра установлена в подшипнике. Ее внутренняя часть окрашена серой матовой краской, создающей фон для проектируемого испытательного стимула, но не изменяющей спектральный состав излучения лампы 6. Поворот дуги осуществляется от руки за корпус 22. Угол поворота дуги фиксируется через 30° с помощью фиксатора 31. Угол поворота отсчитывается по шкале 32, выгравированной на кольце держателя. Результаты исследований за прибором регистрируются на бланке 27 накалыванием иглой 33 или нанесением точек цветными карандашами. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Бланк 27 закрепляют держателем со шкалой 32. Поле зрения наносится в таком виде, как его видит оператор, стоящий перед пациентом. </span><span style=\" font-size:12pt; font-weight:600;\">Таким образом, оператор начинает отсчет по графику бланка с правой стороны от 0° и ведет его против часовой стрелки.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:600;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Чтобы установить глаз пациента в центре дуги периметра, на расстоянии 0,333 м, в приборе предусмотрены лицевой установ и оптическая система контроля рабочего расстояния. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Лицевой установ предназначен для фиксации головы пациента и ориентирования его глаза относительно центра дуги прибора. Он состоит из подбородника 34 и налобника 35. Вращением рукоятки 36, лицевой установ можно перемещать в поперечном направлении, а вращением рукоятки 37 - в продольном направлении. Установка подбородника по высоте осуществляется вращением гайки 38 с накаткой, а наклон – винтом 39.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">В оптической системе контроля рабочего расстояния имеется два идентичных «рожка» 40, включаемых при нажатой кнопке 41. Каждый из рожков дает равновеликое изображение кольца. Оба изображения совпадают только в центре дуги. Если глаз установлен в центре дуги, оба изображения кольца сольются в одно кольцо, расположенное вокруг зрачка пациента на расстоянии 333 мм от точки фиксации взора (смотреть рисунок).</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Segoe Script\'; font-size:10pt;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Основные технические характеристики прибора ПРП-60.УЧ.2:</span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    </p>\n"
+"<table border=\"0\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px;\" cellspacing=\"2\" cellpadding=\"0\">\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Рабочая область спектра, [мкм]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">от 0,4 до 0,78    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Пределы перемещения стимула по дуге, [град]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">от -95° до +95°    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Диаметр испытательного стимула, [мм]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">6,5; 3,2; 2; 0,65    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Цвета испытательного стимула    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">белый, красный, зеленый, синий    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Яркость стимула, [кд/м2]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">16; 4; 0,48; 0,12;0,03; 0,00048;0,00012; 0,00003    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Яркость дуги, [кд/м2]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">- дневное зрение 5<br />- сумеречное зрение 0,2<br />- ночное зрение 0,0002    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Радиус дуги, [мм]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">333    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Источники света    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">лампа РН-8-20, лампа МН 13,5-0,16    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Габаритные размеры прибора, [мм]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">655×678×750    </span></p></td></tr>\n"
+"<tr>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Масса прибора, [кг]    </span></p></td>\n"
+"<td>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">не более 25  </span></p></td></tr></table></body></html>"))
+        self.label_10.setText(_translate("MainWindow", "Форма бланков"))
+        self.label_8.setText(_translate("MainWindow", "Принципиальная оптическая схема наблюдательного канала"))
+        self.textBrowser_3.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:20pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Оптическая система прибора включает в себя четыре канала: </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">- осветительный канал; </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">- канал фиксации взора; </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">- канал контроля рабочего расстояния; </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">- наблюдательный канал. </span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Принципиальная оптическая схема наблюдательного канала проекционного периметра приводится на рисунке.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Прибор основан на принципе фиксации различными зонами сетчатки неподвижного глаза 4, расположенного в центре полусферы, световой проекции испытательного стимула 2, находящегося на различных участках этой полусферы. Полусфера имитируется дугой 1 периметра. Дуга может вращаться вокруг неподвижной оси 5, на которой располагается точка 3 фиксации взора глаза 4. Результаты исследования регистрируются на специальном бланке-графике. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Методика работы:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Периметр устанавливается против света, его дуга приводится в горизонтальное положение. Испытуемый садится спиной к свету, устанавливает свой подбородок в специальную подставку, а нижний край глазницы одного глаза - к визирной пластинке. Этим глазом испытуемый фиксирует белый кружок по центру дуги периметра. При этом другой глаз закрывает ладонью. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Помощник медленно передвигает белую марку с наружного правого края к центру дуги периметра. Испытуемый должен сообщить о появлении в поле зрения открытого глаза белой марки. Замечается угол в градусах, под которым испытуемый различает белую марку. На бланке делается соответствующая отметка (по горизонтали справа на определенном меридиане ставится точка). Затем измеряется поле зрения для белой марки с левой стороны дуги периметра. Делается соответствующая отметка в бланке (по горизонтали слева на определенном меридиане ставится точка). После этого дугу периметра поворачивают на 90 градусов и аналогично определяют границы полей зрения для белой марки снизу и сверху дуги периметра. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Последнее измерение проводится при положении дуги периметра под углом в 45 градусов. Как только на бланке появятся 8 точек, необходимо их соединить. Получают границы поля зрения для белого цвета у одного из глаз. По сходной методике выявляют границу поля зрения для белого цвета у другого глаза. </span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:7.8pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">Далее необходимо последовательно заменять белую марку цветными (красной, зеленой, синей). На бланке отмечаются границы полей зрения для красного, зеленого и синего цветов.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt; font-weight:400;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:600;\">Пример выполнения исследований:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:12pt; font-weight:400;\">https://www.youtube.com/watch?v=rpb0sP2vSVw&amp;ab_channel=Melihovka</span></p></body></html>"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "  Лекция. Часть 2  "))
+        self.label_21.setText(_translate("MainWindow", "Композиция принципиальных оптических схем"))
         self.textBrowser_5.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -522,26 +1059,97 @@ class Ui_LecMainWindow(object):
 "</style></head><body style=\" font-family:\'Segoe Script\'; font-size:10pt; font-weight:72; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400;\">Оптическая схема канала контроля рабочего расстояния приведена на рисунке. Общая для всех каналов прибора лампа 6 создает освещение двух идентичных ветвей 16 - 19. В каждой ветви канала полевая диафрагма 17, имеющая форму кольца, освещается равномерно с помощью конденсора 16. Полевая диафрагма 17 проектируется на исследуемый глаз 4 объективом 18 и зеркалом 19. Конденсоры 16 и объективы 18 изображают нить лампы 6 на зеркалах 19 как апертурных диафрагмах. Таким образом, данная система компонуется по схеме диапроекции по Келлеру. Зеркала 19 направляют лучи таким образом, что при условии наложения изображения колец друг на друга и окаймлений ими зрачка исследуемого глаза 4 обеспечивается точная установка глаза в центре дуги (на расстоянии 333 мм от фиксационной точки 3).</span></p></body></html>"))
         self.label_23.setText(_translate("MainWindow", "Оптическая схема канала контроля рабочего состояния"))
-        self.label_21.setText(_translate("MainWindow", "Композиция принципиальных оптических схем"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "Лекция. Часть 3"))
+        self.label_26.setText(_translate("MainWindow", " Схема контроля рабочего расстояния"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_4), _translate("MainWindow", "  Лекция. Часть 3  "))
         self.textBrowser_8.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:600; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Считается, что в сетчатке глаза человека есть три вида колбочек, максимумы чувствительности которых приходятся на красный, зелёный и синий участки спектра, т. е. соответствуют трём «основным» цветам. Они обеспечивают распознавание тысяч цветов и оттенков. Очень сильный свет возбуждает все 3 типа рецепторов и потому воспринимается как излучение слепяще-белого цвета. Равномерное раздражение всех трёх элементов, соответствующее средневзвешенному дневному свету, также вызывает ощущение белого цвета. В зависимости от расположения палочек и колбочек в сетчатке (колбочки расположены в центре, а палочки – по бокам, а между ними – палочки и колбочки в хаотическом порядке) размер поля зрения меняется для разного воспринимаемого цвета. Самое большое поле зрения у белого цвета, затем у синего, красного и зеленого (рис. 9.6). Из-за носа и щек поле зрения имеет слегка неправильную, асимметричную форму. Для белого цвета горизонтальная протяженность поля зрения составляет примерно 180º.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Свет с разной длиной волны по-разному стимулирует разные типы колбочек. Например, желто-зеленый свет в равной степени стимулирует колбочки L и M-типов, но слабее стимулирует колбочки S-типа. Красный свет стимулирует колбочки L-типа намного сильнее, чем колбочки M-типа, а S-типа не стимулирует почти совсем. Зелено-голубой свет стимулирует рецепторы M-типа сильнее, чем L-типа, а рецепторы S-типа – ещё немного сильнее; свет с этой длиной волны наиболее сильно стимулирует также палочки. Фиолетовый свет стимулирует почти исключительно колбочки S-типа. Мозг воспринимает комбинированную информацию от разных рецепторов, что обеспечивает различное восприятие света с разной длиной волны.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe Script\',\'MS Shell Dlg 2\';\">Периметрия - это методика для оценки границ поля зрения. Поле зрения - это совокупность всех точек в пространстве, которое видит человек одним глазом при фиксированном по центру взоре. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Segoe Script\',\'MS Shell Dlg 2\';\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:\'Segoe Script\',\'MS Shell Dlg 2\';\">Бинокулярное зрение - это зрение при помощи двух глаз. Бинокулярное зрение имеет большие преимущества: оно значительно увеличивает поле зрения, участвует в восприятии глубины пространства, размеров и формы объектов, оценке расстояния до объектов. </span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Полем зрения называется пространство, в пределах которого видны все его точки при фиксированном положении глаза. Поле зрения в значительной степени определяет пропускную способность зрительного анализатора, т. е. то максимальное количество информации, которое способны зарегистрировать органы зрения за единицу времени. Между размерами поля зрения и пропускной способностью зрительного анализатора существует прямая зависимость – чем больше поле зрения, тем больше его пропускная способность. Размеры поля зрения значительно варьируются у различных людей. Эти индивидуальные различия зависят, например, от профессиональной деятельности, в частности, от занятия различными видами спорта. У футболистов, хоккеистов, волейболистов и других представителей игровых видов спорта границы поля зрения существенно шире, чем у людей, не занимающихся спортом. Также поле зрения увеличивается с возрастом. Поле зрения особенно интенсивно развивается в дошкольном и младшем школьном возрасте. Так, например, за период от 6 до 7,5 лет поле зрения возрастает в 10 раз. В возрасте 7 лет оно составляет 80 % от размеров поля зрения взрослого. В развитии поля зрения наблюдаются и половые особенности. В 6 лет поле зрения у мальчиков больше, чем у девочек, в 7–8 лет наблюдается обратное соотношение. В последующие годы размеры поля зрения сравниваются, а с 13–14 лет его размеры у девочек больше. Расширение поля зрения продолжается до 20–30 летнего возраста. В старости границы поля зрения несколько сужаются. Это сужение идет неравномерно по всем направлениям, не имеет прямой корреляции с возрастом и зависит от ряда факторов, в том числе от профессии. Различают цветовое (хроматическое) и бесцветное (ахроматическое) поле зрения. Ахроматическое поле зрения больше хроматического, т. е. наиболее велико поле зрения для белого цвета (т. е. для смешанного цвета). Это объясняется тем, что палочки, чувствительные ко всем видимым лучам и воспринимающие не цвет, а свет, находятся в большом количестве на периферии сетчатки. Границы ахроматического поля зрения составляют: кнаружи примерно 100º, кнутри и кверху – 60º и книзу – 65º. Для различных цветов поле зрения также неодинаково. Немного меньше, чем для белого, поле зрения для желтого цвета, ещё меньше для синего цвета, далее идет красный цвет, самое узкое поле зрения для зеленого цвета.</span></p>\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;\"><br /></p>\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Измерение поля зрения - это измерение пространства, которое человек видит неподвижным глазом. Изменения поля зрения могут носить различный характер: в одних случаях оно концентрически сужено, иногда выпадают отдельные участки поля зрения как в центре (центральные скотомы), так и на периферии (периферические скотомы). При заболеваниях головного мозга нередко наблюдается двустороннее выпадение поля зрения - гемианопсия.</span></p></body></html>"))
-        self.label_24.setText(_translate("MainWindow", "Схема степени восприятия объектов:\n"
-"зона 1 – высокая степень идентификации цветов;\n"
-"зона 2 – средняя степень идентификации цветов (видны практически все цвета);\n"
-"зона 3 – Низкая степень идентификации цветов (видимы некоторые цвета)."))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Методические материалы для работы"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "Методические указания к работе"))
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Считается, что в сетчатке глаза человека есть три вида колбочек, максимумы чувствительности которых приходятся на красный, зелёный и синий участки спектра, т. е. соответствуют трём «основным» цветам. Они обеспечивают распознавание тысяч цветов и оттенков. Очень сильный свет возбуждает все 3 типа рецепторов и потому воспринимается как излучение слепяще-белого цвета. Равномерное раздражение всех трёх элементов, соответствующее средневзвешенному дневному свету, также вызывает ощущение белого цвета. В зависимости от расположения палочек и колбочек в сетчатке (колбочки расположены в центре, а палочки – по бокам, а между ними – палочки и колбочки в хаотическом порядке) размер поля зрения меняется для разного воспринимаемого цвета. Самое большое поле зрения у белого цвета, затем у синего, красного и зеленого. Из-за носа и щек поле зрения имеет слегка неправильную, асимметричную форму. Для белого цвета горизонтальная протяженность поля зрения составляет примерно 180º. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Свет с разной длиной волны по-разному стимулирует разные типы колбочек. Например, желто-зеленый свет в равной степени стимулирует колбочки L и M-типов, но слабее стимулирует колбочки S-типа. Красный свет стимулирует колбочки L-типа намного сильнее, чем колбочки M-типа, а S-типа не стимулирует почти совсем. Зелено-голубой свет стимулирует рецепторы M-типа сильнее, чем L-типа, а рецепторы S-типа – ещё немного сильнее; свет с этой длиной волны наиболее сильно стимулирует также палочки. Фиолетовый свет стимулирует почти исключительно колбочки S-типа. Мозг воспринимает комбинированную информацию от разных рецепторов, что обеспечивает различное восприятие света с разной длиной волны. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Периметрия</span><span style=\" font-weight:400;\"> — это методика для оценки границ поля зрения. Поле зрения — это совокупность всех точек в пространстве, которое видит человек одним глазом при фиксированном по центру взоре. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Монокулярное зрение</span><span style=\" font-weight:400;\"> характеризуется тем, что предметы и движущиеся объекты, попадающие в поле зрения смотрящего субъекта, воспринимаются преимущественно лишь одним глазом. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Бинокулярное зрение</span><span style=\" font-weight:400;\"> – восприятие окружающих предметов двумя глазами – обеспечивается в корковом отделе зрительного анализатора благодаря сложнейшему физиологическому механизму зрения – фузии, т. е. слиянию зрительных образов, возникающих отдельно в каждом глазу (монокулярное изображение), в единое сочетанное зрительное восприятие. Бинокулярное зрение имеет большие преимущества: оно значительно увеличивает поле зрения, участвует в восприятии глубины пространства, размеров и формы объектов, оценке расстояния до объектов. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Полем зрения называется пространство, в пределах которого видны все его точки при фиксированном положении глаза. Поле зрения в значительной степени определяет пропускную способность зрительного анализатора, т. е. то максимальное количество информации, которое способны зарегистрировать органы зрения за единицу времени. Между размерами поля зрения и пропускной способностью зрительного анализатора существует прямая зависимость – чем больше поле зрения, тем больше его пропускная способность. Размеры поля зрения значительно варьируются у различных людей. Эти индивидуальные различия зависят, например, от профессиональной деятельности, в частности, от занятия различными видами спорта. У футболистов, хоккеистов, волейболистов и других представителей игровых видов спорта границы поля зрения существенно шире, чем у людей, не занимающихся спортом. Также поле зрения увеличивается с возрастом. Поле зрения особенно интенсивно развивается в дошкольном и младшем школьном возрасте. Так, например, за период от 6 до 7,5 лет поле зрения возрастает в 10 раз. В возрасте 7 лет оно составляет 80 % от размеров поля зрения взрослого. В развитии поля зрения наблюдаются и половые особенности. В 6 лет поле зрения у мальчиков больше, чем у девочек, в 7–8 лет наблюдается обратное соотношение. В последующие годы размеры поля зрения сравниваются, а с 13–14 лет его размеры у девочек больше. Расширение поля зрения продолжается до 20–30 летнего возраста. В старости границы поля зрения несколько сужаются. Это сужение идет неравномерно по всем направлениям, не имеет прямой корреляции с возрастом и зависит от ряда факторов, в том числе от профессии. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">  </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Различают цветовое (хроматическое) и бесцветное (ахроматическое) поле зрения. Ахроматическое поле зрения больше хроматического, т. е. наиболее велико поле зрения для белого цвета (т. е. для смешанного цвета). Это объясняется тем, что палочки, чувствительные ко всем видимым лучам и воспринимающие не цвет, а свет, находятся в большом количестве на периферии сетчатки. Для различных цветов поле зрения также неодинаково. Немного меньше, чем для белого, поле зрения для желтого цвета, ещё меньше для синего цвета, далее идет красный цвет, самое узкое поле зрения для зеленого цвета. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Измерение поля зрения</span><span style=\" font-weight:400;\"> — это измерение пространства, которое человек видит неподвижным глазом. Изменения поля зрения могут носить различный характер: в одних случаях оно концентрически сужено, иногда выпадают отдельные участки поля зрения как в центре (центральные скотомы), так и на периферии (периферические скотомы). При заболеваниях головного мозга нередко наблюдается двустороннее выпадение поля зрения - гемианопсия. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Регистрация результатов периметрии должна быть однотипной и удобной для их сравнения. Результаты измерений заносят на специальные стандартные бланки отдельно для каждого глаза. Бланк состоит из серии кругов с интервалом между ними 10°, которые через центр поля зрения пересекает координатная сетка, обо­значающая меридианы исследования. Последние наносят через 10 или 15°. </span></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:400;\">Схемы полей зрения принято располагать для правого глаза справа, для лево­го – слева; при этом височные половины поля зрения обращены кнаружи, а но­совые – кнутри. На</span> каждой схеме принято обозначать нормальные границы поля зрения на белый и хроматические цвета.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Паталогические изменения поля зрения</span> </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Все многообразие патологических изменений (дефектов) поля зрения можно свести к двум основным видам: </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1) сужение границ поля зрения (концентрическое или локальное); </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2) очаговые выпадения зрительной функции – скотомы.</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Концентрическое сужение поля зрения может быть сравнительно небольшим или простираться почти до точки фиксации – трубочное поле зрения. Концентрическое сужение развивается в связи с различными органическими заболеваниями глаза (пигментное перерождение сетчатки, невриты и атрофии зрительного нерва, периферические хориоретиниты, поздние стадии глаукомы), однако оно может быть и функциональным – при неврозах, неврастении, истерии.</p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Локальные сужения границ поля зрения характеризуются сужением его в каком-либо участке при нормальных размерах на остальном протяжении. Такие дефекты могут быть одно- и двусторонними. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Большое диагностическое значение имеет двустороннее выпадение половины поля зрения – <span style=\" font-weight:600;\">гемианопсия</span>. Гомонимная гемианопсия — это половинчатое одноименное (право- или левостороннее) выпадение полей зрения в обоих глазах. Оно возникает при наличии патологии, затрагивающей один из зрительных трактов. Если поражается правый зрительный тракт, то возникает левосторонняя гомонимная гемианопсия, т. е. выпадают левые половины полей зрения обоих глаз. При поражении левого зрительного тракта развивается правосторонняя гемианопсия. Гемианопсии делят на гомонимные (одноименные) и гетеронимные (разноименные). Они возникают при поражении зрительного пути в области зрительного перекреста или позади него в связи с неполным перекрестом нервных волокон. Иногда гемианопсии обнаруживает сам больной, но чаще их выявляют при исследовании поля зрения. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Гомонимная гемианопсия </span>характеризуется выпадением височной половины поля зрения в одном глазу и носовой – в другом. Она обусловлена поражением зрительного пути на стороне, противоположной выпадению поля зрения. Характер гемианопсии изменяется в зависимости от локализации участка поражения зрительного пути. Гемианопсия может быть полной при выпадении всей половины поля зрения или частичной, квадрантной. При этом граница дефекта проходит по средней линии, а при квадрантной гемианопсии начинается от точки фиксации. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">В начальной стадии опухолевого или воспалительного процесса может быть сдавлена только часть зрительного тракта. В этом случае регистрируются симметричные <span style=\" font-weight:600;\">гомонимные квадрантные гемианопсии</span>, т. е. выпадает четверть поля зрения в каждом глазу, например пропадает левая верхняя четверть поля зрения как в правом, так и в левом глазу. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Когда опухоль мозга затрагивает корковые отделы зрительных путей, вертикальная линия гомонимных выпадений полей зрения не захватывает центральные отделы, она обходит точку фиксации, т. е. зону проекции желтого пятна. Это объясняется тем, что волокна от нейроэлементов центрального отдела сетчатки уходят в оба полушария головного мозга. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Причины гомонимной гемианопсии различны: опухоли, кровоизлияния и воспалительные заболевания головного мозга. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Гетеронимная гемианопсия</span> характеризуется выпадением наружных или внутренних половин поля зрения и обусловлена поражением зрительного пути в области зрительного перекреста. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Битемпоральная гемианопсия</span> – выпадение наружных половин поля зрения. Она развивается при локализации патологического очага в области средней части зрительного перекреста и является частым симпто­мом опухоли гипофиза. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Биназальная гемианопсия</span> – выпадение носовых половин поля зрения – развивается при поражении неперекрещенных волокон зрительного пути в области зрительного перекреста. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Это возможно при двустороннем склерозе или аневризмах – внутренней сонной артерии и любом другом давлении на зрительный перекрест с обеих сторон. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Очаговый дефект поля зрения, не сливающийся с его периферическими границами, называется скотомой. Скотома может отмечаться непосредственно самим больным в виде тени или пятна. Такая скотома называется положительной. Скотомы, не вызывающие у больного субъективных ощущений и обнаруживаемые только с помощью специальных методов исследования, носят название отрицательных. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Скотомы могут быть в виде круга, овала, дуги, сектора и иметь неправильную форму. В зависимости от локализации дефекта в поле зрения по отношению к точке фиксации различают <span style=\" font-weight:600;\">центральные, перицентральные, парацентральные, секторальные и различного вида периферические скотомы.</span> </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Физиологические скотомы могут существенно увеличиваться. Увеличение размеров слепого пятна является ранним признаком некоторых заболеваний (глаукомы, застойного диска зрительного нерва, гипертонической болезни и др.), поэто­му измерение его имеет большое диагностическое значение. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">По месту расположения скотом в поле зрения выделяют периферические, центральные и парацентральные скотомы. На удалении 12-18 градусов от центра в височной половине располагается слепое пятно. Это физиологическая абсолютная скотома. Она соответствует проекции диска зрительного нерва. Увеличение слепого пятна имеет важное диагностическое значение. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Центральные и парацентральные скотомы выявляют при кампиметрии. Пациент фиксирует взглядом светлую точку в центре плоской черной доски и следит за появлением и исчезновением белой (или цветной) метки, которую врач перемещает по доске, и отмечает границы дефектов поля зрения. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Центральные и парацентральные скотомы появляются при поражении папилломакулярного пучка зрительного нерва, сетчатки и хориоидеи. Центральная скотома может быть первым проявлением рассеянного склероза. </p></body></html>"))
+        self.label_27.setText(_translate("MainWindow", "Локальное сужение поля зрения"))
+        self.label_36.setText(_translate("MainWindow", "Гомонимная гемианопсия"))
+        self.label_38.setText(_translate("MainWindow", "Гомонимная квадрантная гемианопсия"))
+        self.label_40.setText(_translate("MainWindow", "Гомонимная гемианопсия \n"
+" (обхождение точки фиксации)"))
+        self.label_42.setText(_translate("MainWindow", "Гетеронимная битемпоральная гемианопсия"))
+        self.label_44.setText(_translate("MainWindow", "Гетеронимная биназальная гемианопсия"))
+        self.label_46.setText(_translate("MainWindow", "Центральная скотома"))
+        self.label_48.setText(_translate("MainWindow", "Перицентральная скотома"))
+        self.label_50.setText(_translate("MainWindow", "Парацентральная скотома"))
+        self.label_52.setText(_translate("MainWindow", "Периферическая (секторальная) скотома"))
+        self.label_14.setText(_translate("MainWindow", "Концентрическое сужение поля зрения"))
+        self.pushButton_3.setText(_translate("MainWindow", "Назад"))
+        self.pushButton_4.setText(_translate("MainWindow", "Вперед"))
+        self.label_29.setText(_translate("MainWindow", "Монокулярное поле зрения"))
+        self.label_31.setText(_translate("MainWindow", "Бинокулярное поле зрения"))
+        self.label_33.setText(_translate("MainWindow", "Нормальные границы полей зрения"))
+        self.label_24.setText(_translate("MainWindow", "Зона 1 – высокая степень идентификации цветов;\n"
+"Зона 2 – средняя степень идентификации цветов (видны практически все цвета);\n"
+"Зона 3 – Низкая степень идентификации цветов (видимы некоторые цвета)."))
+        self.label_13.setText(_translate("MainWindow", "Схема степени восприятия объектов"))
+        self.pushButton.setText(_translate("MainWindow", "Назад"))
+        self.pushButton_2.setText(_translate("MainWindow", "Вперед"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "  Методические материалы для работы  "))
+        self.textBrowser_7.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:72; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Цель работы:</span> определить монокулярное поле зрения правого и левого глаз для белого, синего, красного и зеленого цветов; проанализировать полученные графики исследований, определить любой недостаток зрения. Определить границы бинокулярного поля зрения. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Содержание отчета:</span> </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Что такое поле зрения и что оно определяет? </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Зависимость поля зрения от расположения палочек и колбочек. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Различие хроматического и ахроматического полей зрения. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>График исследования поля зрения в белом свете. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">5.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>График исследования поля зрения в свете различного спектрального состава (синий, зелёный, красный). </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">6.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>График бинокулярного поля зрения в белом свете. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">7.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Анализ полученных результатов: </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Степень идентификации объектов различных цветов для каждого глаза. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Определить (в градусах) наружную, внутренную, верхную и нижнюю границы полей зрения на каждый цвет для каждого глаза. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Определение наличия и вида скотомы для каждого глаза. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">    - Сравненение с графиком нормального поля зрения. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">  </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-weight:600;\">Ход работы:</span> </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">1.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Исследование поля зрения в белом свете. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Для исследования поля зрения в белом свете необходимо в окне «Лабораторная работа» выбрать радио-кнопки «0», «левый глаз» и «белый», где «0» - угол поворота периметра, «левый глаз» - исследуемый глаз, «белый» - выбранный цвет для исследования. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">После этого необходимо найти на графике точку. Масштаб на графике 1:10. Отметка «9» на линейке соответствует середине и уровню положения глаз. Далее необходимо рассчитать расстояние от начальной точки до положения момента распознавания объекта белого цвета. Для этого мы вычитаем из отметки момента распознавания отметку 9 и затем умножаем на 10. Далее нажимаем кнопку «Построить график». Выбираем радио-кнопку с нужным цветом, выбираем прямую с нужным углом поворота, а затем круговую область с соответствующим полученному значением. На пересечении этих линий мы отмечаем точку нажатием левой кнопки мыши. Далее необходимо выбрать угол поворота 30° и повторить все вышеописанные действия. Когда будет отмечена последняя точка на прямой с углом поворота 330° , необходимо нажать кнопку «Проявить области». После этого нажать кнопку с изображением дискеты, чтобы сохранить полученный график. Далее выбрать радио-кнопки «0», «белый», «правый глаз» и повторить все действия как для левого глаза, после чего повторно сохранить график. </p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">2.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Исследование поля зрения в свете различного спектра (синий, красный, зелёный).   </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Для исследования поля зрения в синем свете необходимо выбрать радио-кнопки «0», «синий», «левый глаз». Далее повторить все действия как при измерении с белым светом, затем, после измерения при угле поворота 330° нажать кнопку «Проявить область», затем в левой части экрана выбрать радио-кнопки «0», «зелёный», «левый глаз».  Для отметки точек выбранного цвета необходимо в правой части экрана выбрать радио-кнопку нужного цвета, и только после этого отмечать точки. После отметки всех точек необходимо нажать кнопку «Проявить область» и приступить к исследованию поля зрения красного цвета. </p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">После того, как на графике будут проявлены все области, необходимо нажать кнопку с изображением дискеты и сохранить график. Повторить все вышеуказанные действия для правого глаза. </p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">3.<span style=\" font-family:\'Times New Roman\'; font-size:7pt; font-weight:400;\">      </span>Определение бинокулярного поля зрения. </p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">4.   Анализ полученных результатов</p></body></html>"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_6), _translate("MainWindow", "  Методические указания к работе  "))
