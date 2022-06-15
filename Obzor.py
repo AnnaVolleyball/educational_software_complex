@@ -20,7 +20,11 @@ class Ui_ObzMainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         MainWindow.setFont(font)
-        MainWindow.setStyleSheet("QToolBox::tab\n"
+        MainWindow.setStyleSheet("QMainWindow{\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));\n"
+"}\n"
+"\n"
+"QToolBox::tab\n"
 "{\n"
 "    background-color: rgb(129, 65, 194);\n"
 "    border: 2px solid rgb(0, 0, 0);\n"
@@ -37,19 +41,19 @@ class Ui_ObzMainWindow(object):
 "rgb(0, 0, 203)")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.horizontalLayout_10 = QtWidgets.QHBoxLayout(self.centralwidget)
-        self.horizontalLayout_10.setObjectName("horizontalLayout_10")
+        self.gridLayout = QtWidgets.QGridLayout(self.centralwidget)
+        self.gridLayout.setObjectName("gridLayout")
         self.toolBox = QtWidgets.QToolBox(self.centralwidget)
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
         font.setWeight(75)
         self.toolBox.setFont(font)
-        self.toolBox.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));\n"
+        self.toolBox.setStyleSheet("background-color: transparent;\n"
 "color: white")
         self.toolBox.setObjectName("toolBox")
         self.page = QtWidgets.QWidget()
-        self.page.setGeometry(QtCore.QRect(0, 0, 1778, 536))
+        self.page.setGeometry(QtCore.QRect(0, 0, 829, 535))
         self.page.setObjectName("page")
         self.horizontalLayout_19 = QtWidgets.QHBoxLayout(self.page)
         self.horizontalLayout_19.setObjectName("horizontalLayout_19")
@@ -80,6 +84,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_19.addLayout(self.horizontalLayout)
         self.toolBox.addItem(self.page, "")
         self.page_3 = QtWidgets.QWidget()
+        self.page_3.setGeometry(QtCore.QRect(0, 0, 614, 501))
         self.page_3.setObjectName("page_3")
         self.horizontalLayout_18 = QtWidgets.QHBoxLayout(self.page_3)
         self.horizontalLayout_18.setObjectName("horizontalLayout_18")
@@ -100,6 +105,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_18.addLayout(self.horizontalLayout_2)
         self.toolBox.addItem(self.page_3, "")
         self.page_4 = QtWidgets.QWidget()
+        self.page_4.setGeometry(QtCore.QRect(0, 0, 649, 535))
         self.page_4.setObjectName("page_4")
         self.horizontalLayout_17 = QtWidgets.QHBoxLayout(self.page_4)
         self.horizontalLayout_17.setObjectName("horizontalLayout_17")
@@ -120,6 +126,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_17.addLayout(self.horizontalLayout_3)
         self.toolBox.addItem(self.page_4, "")
         self.page_5 = QtWidgets.QWidget()
+        self.page_5.setGeometry(QtCore.QRect(0, 0, 649, 535))
         self.page_5.setObjectName("page_5")
         self.horizontalLayout_16 = QtWidgets.QHBoxLayout(self.page_5)
         self.horizontalLayout_16.setObjectName("horizontalLayout_16")
@@ -140,6 +147,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_16.addLayout(self.horizontalLayout_4)
         self.toolBox.addItem(self.page_5, "")
         self.page_6 = QtWidgets.QWidget()
+        self.page_6.setGeometry(QtCore.QRect(0, 0, 1778, 536))
         self.page_6.setObjectName("page_6")
         self.horizontalLayout_15 = QtWidgets.QHBoxLayout(self.page_6)
         self.horizontalLayout_15.setObjectName("horizontalLayout_15")
@@ -160,6 +168,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_15.addLayout(self.horizontalLayout_5)
         self.toolBox.addItem(self.page_6, "")
         self.page_7 = QtWidgets.QWidget()
+        self.page_7.setGeometry(QtCore.QRect(0, 0, 649, 535))
         self.page_7.setObjectName("page_7")
         self.horizontalLayout_14 = QtWidgets.QHBoxLayout(self.page_7)
         self.horizontalLayout_14.setObjectName("horizontalLayout_14")
@@ -180,6 +189,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_14.addLayout(self.horizontalLayout_6)
         self.toolBox.addItem(self.page_7, "")
         self.page_8 = QtWidgets.QWidget()
+        self.page_8.setGeometry(QtCore.QRect(0, 0, 614, 504))
         self.page_8.setObjectName("page_8")
         self.horizontalLayout_13 = QtWidgets.QHBoxLayout(self.page_8)
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
@@ -200,6 +210,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_13.addLayout(self.horizontalLayout_7)
         self.toolBox.addItem(self.page_8, "")
         self.page_9 = QtWidgets.QWidget()
+        self.page_9.setGeometry(QtCore.QRect(0, 0, 739, 535))
         self.page_9.setObjectName("page_9")
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout(self.page_9)
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
@@ -220,7 +231,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_12.addLayout(self.horizontalLayout_8)
         self.toolBox.addItem(self.page_9, "")
         self.page_2 = QtWidgets.QWidget()
-        self.page_2.setGeometry(QtCore.QRect(0, 0, 1778, 536))
+        self.page_2.setGeometry(QtCore.QRect(0, 0, 614, 535))
         self.page_2.setObjectName("page_2")
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout(self.page_2)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
@@ -240,7 +251,7 @@ class Ui_ObzMainWindow(object):
         self.horizontalLayout_9.addWidget(self.textBrowser_9)
         self.horizontalLayout_11.addLayout(self.horizontalLayout_9)
         self.toolBox.addItem(self.page_2, "")
-        self.horizontalLayout_10.addWidget(self.toolBox)
+        self.gridLayout.addWidget(self.toolBox, 0, 0, 1, 1)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1800, 26))

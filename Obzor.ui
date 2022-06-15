@@ -21,7 +21,11 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QToolBox::tab
+   <string notr="true">QMainWindow{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));
+}
+
+QToolBox::tab
 {
     background-color: rgb(129, 65, 194);
     border: 2px solid rgb(0, 0, 0);
@@ -38,8 +42,8 @@ QToolBox::tab:selected
 rgb(0, 0, 203)</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout_10">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
      <widget class="QToolBox" name="toolBox">
       <property name="font">
        <font>
@@ -49,7 +53,7 @@ rgb(0, 0, 203)</string>
        </font>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(67, 15, 222, 255), stop:1 rgba(156, 20, 222, 255));
+       <string notr="true">background-color: transparent;
 color: white</string>
       </property>
       <property name="currentIndex">
@@ -60,8 +64,8 @@ color: white</string>
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1778</width>
-         <height>536</height>
+         <width>829</width>
+         <height>535</height>
         </rect>
        </property>
        <attribute name="label">
@@ -131,6 +135,14 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="page_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>614</width>
+         <height>501</height>
+        </rect>
+       </property>
        <attribute name="label">
         <string>Периграф «Tоmey AP-1000»</string>
        </attribute>
@@ -204,6 +216,14 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="page_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>649</width>
+         <height>535</height>
+        </rect>
+       </property>
        <attribute name="label">
         <string>Периграф «Tomey AP-3000»</string>
        </attribute>
@@ -257,6 +277,14 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="page_5">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>649</width>
+         <height>535</height>
+        </rect>
+       </property>
        <attribute name="label">
         <string>Автоматический статический периметр «Easyfield»</string>
        </attribute>
@@ -320,6 +348,14 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="page_6">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>1778</width>
+         <height>536</height>
+        </rect>
+       </property>
        <attribute name="label">
         <string>Автоматический периметр «Centerfield® 2»</string>
        </attribute>
@@ -368,6 +404,14 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="page_7">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>649</width>
+         <height>535</height>
+        </rect>
+       </property>
        <attribute name="label">
         <string>Автоматический проекционный периметр «Twinfield® 2»</string>
        </attribute>
@@ -418,6 +462,14 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="page_8">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>614</width>
+         <height>504</height>
+        </rect>
+       </property>
        <attribute name="label">
         <string>Проекционный периметр «Galaxy Evolution»</string>
        </attribute>
@@ -483,6 +535,14 @@ p, li { white-space: pre-wrap; }
        </layout>
       </widget>
       <widget class="QWidget" name="page_9">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>739</width>
+         <height>535</height>
+        </rect>
+       </property>
        <attribute name="label">
         <string>Цифровой периметр «Galaxy Mini»</string>
        </attribute>
@@ -555,8 +615,8 @@ p, li { white-space: pre-wrap; }
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>1778</width>
-         <height>536</height>
+         <width>614</width>
+         <height>535</height>
         </rect>
        </property>
        <attribute name="label">

@@ -594,3 +594,4 @@ if __name__ == '__main__':
     ex.show()
     sys.exit(app.exec())
 
+# pyinstaller --onefile --noconsole --icon=app.ico main.py
